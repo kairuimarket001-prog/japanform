@@ -16,6 +16,19 @@ import { userTracking } from '../lib/userTracking';
 import { trackConversion, trackDiagnosisButtonClick, trackConversionButtonClick } from '../lib/googleTracking';
 import { generateDiagnosisReport } from '../lib/reportGenerator';
 
+const diagnosisRecords = [
+  { time: '2分前', stock: 'トヨタ自動車', icon: '👨' },
+  { time: '5分前', stock: 'ソニーグループ', icon: '👩' },
+  { time: '8分前', stock: '任天堂', icon: '👨' },
+  { time: '12分前', stock: 'ソフトバンクグループ', icon: '👩' },
+  { time: '15分前', stock: 'キーエンス', icon: '👨' },
+  { time: '18分前', stock: '三菱UFJ', icon: '👩' },
+  { time: '22分前', stock: 'ファーストリテイリング', icon: '👨' },
+  { time: '25分前', stock: '東京エレクトロン', icon: '👩' },
+  { time: '28分前', stock: 'リクルート', icon: '👨' },
+  { time: '32分前', stock: 'KDDI', icon: '👩' },
+];
+
 export default function RefactoredHome() {
   const urlParams = useUrlParams();
   const [stockCode, setStockCode] = useState('');
@@ -445,7 +458,6 @@ export default function RefactoredHome() {
 
   return (
     <div className="min-h-screen relative flex flex-col">
-      <DiagnosisTicker />
       <ModernGradientBackground />
 
       <div className="relative z-10 flex-1 flex flex-col">
@@ -455,11 +467,22 @@ export default function RefactoredHome() {
           <div className="flex-1 flex flex-col">
             <div className="flex-[6] flex flex-col items-center justify-center px-4 py-8">
               <IllustrationCard />
-              <div className="flex items-center justify-center gap-2 mt-6">
-                <div className="w-2 h-2 rounded-full bg-gray-400"></div>
-                <div className="w-3 h-3 rounded-full" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}></div>
-                <div className="w-2 h-2 rounded-full bg-gray-400"></div>
-                <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+            </div>
+
+            <div className="w-[95%] mx-auto mb-4">
+              <div className="overflow-hidden bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 py-2 shadow-lg rounded-xl">
+                <div className="animate-scroll-left whitespace-nowrap inline-block">
+                  {[...diagnosisRecords, ...diagnosisRecords, ...diagnosisRecords].map((record, index) => (
+                    <span key={index} className="inline-flex items-center mx-4 text-white">
+                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/20 mr-2 text-sm">
+                        {record.icon}
+                      </span>
+                      <span className="text-sm font-medium mr-2 text-yellow-200">{record.time}</span>
+                      <span className="text-sm font-bold mr-2">{record.stock}</span>
+                      <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">無料レポート取得</span>
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
