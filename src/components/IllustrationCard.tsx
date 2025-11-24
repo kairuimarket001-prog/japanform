@@ -66,7 +66,7 @@ export default function IllustrationCard() {
 
           <div className="flex-1 flex flex-col items-start justify-center mt-6 mb-10">
             <div className="text-left mb-4">
-              <h1 className="text-5xl font-bold text-gray-900">Join</h1>
+              <h1 className="text-5xl font-bold text-gray-900">AI</h1>
             </div>
 
             <div className="w-full -mx-6">
@@ -76,8 +76,8 @@ export default function IllustrationCard() {
                   background: 'linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%)'
                 }}
               >
-                <h2 className="text-3xl font-bold text-white">
-                  Challenges
+                <h2 className="text-2xl font-bold text-white leading-tight">
+                  株式インテリジェント分析監視ツール
                 </h2>
               </div>
             </div>
