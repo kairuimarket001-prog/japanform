@@ -5,10 +5,10 @@ const carouselItems = [
     id: 1,
     background: 'repeating-conic-gradient(#FFE082 0% 25%, #FFF9C4 0% 50%) 50% / 20px 20px',
     rotation: '2deg',
-    titleLine1: '構築する',
-    titleLine2: '投資',
-    titleLine3: 'コミュニティ',
-    highlightedWord: '投資',
+    titleLine1: 'AIで分析',
+    titleLine2: '株式情報',
+    titleLine3: 'ツール',
+    highlightedWord: '株式情報',
     topLeftIcon: (
       <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="36" cy="36" r="34" fill="#FF5252" />
@@ -32,10 +32,10 @@ const carouselItems = [
     id: 2,
     background: 'repeating-conic-gradient(#B39DDB 0% 25%, #D1C4E9 0% 50%) 50% / 20px 20px',
     rotation: '-2deg',
-    titleLine1: '覗く',
-    titleLine2: 'ポートフォリオ',
+    titleLine1: '銘柄データ',
+    titleLine2: '確認',
     titleLine3: '',
-    highlightedWord: 'ポートフォリオ',
+    highlightedWord: '確認',
     topLeftIcon: (
       <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="36" cy="36" r="34" fill="#424242" />
@@ -61,10 +61,10 @@ const carouselItems = [
     id: 3,
     background: 'repeating-conic-gradient(#a8e6a1 0% 25%, #c8f5c3 0% 50%) 50% / 20px 20px',
     rotation: '2deg',
-    titleLine1: 'AI分析で',
-    titleLine2: '最適な投資',
-    titleLine3: '判断をサポート',
-    highlightedWord: '最適な投資',
+    titleLine1: '株式情報',
+    titleLine2: 'レポート',
+    titleLine3: '作成',
+    highlightedWord: 'レポート',
     topLeftIcon: (
       <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
