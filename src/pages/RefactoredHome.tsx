@@ -453,8 +453,14 @@ export default function RefactoredHome() {
 
         {!showLoadingScene ? (
           <div className="flex-1 flex flex-col">
-            <div className="flex-[6] flex items-center justify-center px-4 py-8">
+            <div className="flex-[6] flex flex-col items-center justify-center px-4 py-8">
               <IllustrationCard />
+              <div className="flex items-center justify-center gap-2 mt-6">
+                <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                <div className="w-3 h-3 rounded-full" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}></div>
+                <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+              </div>
             </div>
 
             <div className="flex-[4] flex flex-col justify-end">
