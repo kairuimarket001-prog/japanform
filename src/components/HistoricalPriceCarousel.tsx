@@ -21,51 +21,32 @@ const createPlaceholderPrices = (): StockPrice[] => {
   }));
 };
 
-interface CardStyle {
-  width: string;
-  opacity: number;
-  blur: string;
-  scale: number;
-  zIndex: number;
-  translateY: number;
-}
-
-const getCardStyle = (position: number): CardStyle => {
-  const styles: Record<string, CardStyle> = {
-    '-2': { width: '70%', opacity: 0.4, blur: 'backdrop-blur-md', scale: 0.96, zIndex: 1, translateY: 0 },
-    '-1': { width: '85%', opacity: 0.6, blur: 'backdrop-blur-sm', scale: 0.98, zIndex: 2, translateY: 0 },
-    '0': { width: '100%', opacity: 1.0, blur: '', scale: 1.0, zIndex: 3, translateY: 0 },
-    '1': { width: '85%', opacity: 0.6, blur: 'backdrop-blur-sm', scale: 0.98, zIndex: 2, translateY: 0 },
-    '2': { width: '70%', opacity: 0.4, blur: 'backdrop-blur-md', scale: 0.96, zIndex: 1, translateY: 0 },
-  };
-
-  return styles[position.toString()] || styles['2'];
-};
-
 export default function HistoricalPriceCarousel({ prices, stockCode, stockName }: HistoricalPriceCarouselProps) {
   const [isPaused, setIsPaused] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const hasData = prices && prices.length > 0;
   const displayPrices = hasData ? prices.slice(0, 10) : createPlaceholderPrices();
 
   const SCROLL_INTERVAL = 3000;
-  const VISIBLE_POSITIONS = [-2, -1, 0, 1, 2];
 
   useEffect(() => {
     if (isPaused || displayPrices.length === 0) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % displayPrices.length);
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % displayPrices.length);
+        setIsAnimating(false);
+      }, 600);
     }, SCROLL_INTERVAL);
 
     return () => clearInterval(interval);
   }, [isPaused, displayPrices.length]);
 
-  const getCardAtPosition = (offset: number): StockPrice | null => {
-    const index = (currentIndex + offset + displayPrices.length) % displayPrices.length;
-    return displayPrices[index];
-  };
+  const currentCard = displayPrices[currentIndex];
+  const nextCard = displayPrices[(currentIndex + 1) % displayPrices.length];
 
   return (
     <div className="w-full max-w-[400px] mx-auto px-4">
@@ -77,44 +58,40 @@ export default function HistoricalPriceCarousel({ prices, stockCode, stockName }
       </div>
 
       <div
-        className="relative"
-        style={{ height: '130px' }}
+        className="relative overflow-hidden"
+        style={{ height: '110px' }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {VISIBLE_POSITIONS.map((position) => {
-          const card = getCardAtPosition(position);
-          if (!card) return null;
+        <div
+          className="absolute inset-0 transition-transform duration-600 ease-in-out"
+          style={{
+            transform: isAnimating ? 'translateY(-110px)' : 'translateY(0)',
+          }}
+        >
+          <div className="h-[110px] flex items-center">
+            <HistoricalPriceCard
+              price={currentCard}
+              isFocused={true}
+              position={0}
+            />
+          </div>
+        </div>
 
-          const style = getCardStyle(position);
-          const isCenter = position === 0;
-
-          return (
-            <div
-              key={`${position}-${currentIndex}`}
-              className={`
-                absolute left-0 right-0 mx-auto
-                transition-all duration-600 ease-in-out
-                ${style.blur}
-                ${isCenter ? 'hover:scale-[1.02] cursor-pointer' : ''}
-              `}
-              style={{
-                width: style.width,
-                opacity: style.opacity,
-                transform: `translateY(calc(-50% + ${style.translateY}px)) scale(${style.scale})`,
-                zIndex: style.zIndex,
-                top: '50%',
-                willChange: 'transform, opacity, filter',
-              }}
-            >
-              <HistoricalPriceCard
-                price={card}
-                isFocused={isCenter}
-                position={position}
-              />
-            </div>
-          );
-        })}
+        <div
+          className="absolute inset-0 transition-transform duration-600 ease-in-out"
+          style={{
+            transform: isAnimating ? 'translateY(0)' : 'translateY(110px)',
+          }}
+        >
+          <div className="h-[110px] flex items-center">
+            <HistoricalPriceCard
+              price={nextCard}
+              isFocused={true}
+              position={0}
+            />
+          </div>
+        </div>
       </div>
 
       <div className="flex items-center justify-center gap-2 mt-6">
