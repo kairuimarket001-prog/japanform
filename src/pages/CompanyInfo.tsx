@@ -144,7 +144,7 @@ export default function CompanyInfo() {
               <div className="bg-gradient-to-r from-slate-100 to-slate-50 rounded-lg p-6 border border-slate-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">企業理念</h3>
                 <p className="text-gray-700 leading-relaxed mb-3">
-                  株式会社デジタルアドは、データ駆動型のデジタル広告ソリューションを提供することで、
+                  株式会社AKYIは、データ駆動型のデジタル広告ソリューションを提供することで、
                   企業のマーケティング成果を最大化することを使命としています。
                 </p>
                 <p className="text-gray-700 leading-relaxed">
