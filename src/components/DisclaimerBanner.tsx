@@ -2,15 +2,15 @@ import { AlertTriangle } from 'lucide-react';
 
 export default function DisclaimerBanner() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-8">
-      <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-lg p-6">
-        <div className="flex items-start gap-4">
-          <AlertTriangle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
+    <div className="max-w-5xl mx-auto px-6 py-6">
+      <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-lg p-4">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
           <div>
-            <h3 className="font-bold text-gray-900 mb-2">
+            <h3 className="font-bold text-gray-900 mb-1.5 text-sm">
               Important Disclaimer
             </h3>
-            <div className="text-sm text-gray-700 space-y-2">
+            <div className="text-xs text-gray-700 space-y-1.5">
               <p>
                 <strong>This is not investment advice.</strong> The information provided by this AI tool
                 is for reference purposes only and should not be considered as financial or investment advice.

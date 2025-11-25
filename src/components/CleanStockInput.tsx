@@ -22,7 +22,7 @@ export default function CleanStockInput({
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-8">
+    <div className="max-w-2xl mx-auto px-6 py-4">
       <div className="flex gap-3">
         <div className="flex-1 relative">
           <input
