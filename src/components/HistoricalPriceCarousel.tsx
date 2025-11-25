@@ -8,12 +8,26 @@ interface HistoricalPriceCarouselProps {
   stockName?: string;
 }
 
+const createPlaceholderPrices = (): StockPrice[] => {
+  return Array.from({ length: 8 }, () => ({
+    date: '---',
+    open: '---',
+    high: '---',
+    low: '---',
+    close: '---',
+    change: '0',
+    changePercent: '---',
+    volume: '---',
+  }));
+};
+
 export default function HistoricalPriceCarousel({ prices, stockCode, stockName }: HistoricalPriceCarouselProps) {
   const [isPaused, setIsPaused] = useState(false);
   const [currentOffset, setCurrentOffset] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const displayPrices = prices.slice(0, 10);
+  const hasData = prices && prices.length > 0;
+  const displayPrices = hasData ? prices.slice(0, 10) : createPlaceholderPrices();
   const extendedPrices = [...displayPrices, ...displayPrices, ...displayPrices];
 
   const VISIBLE_CARDS = 4;
@@ -44,27 +58,14 @@ export default function HistoricalPriceCarousel({ prices, stockCode, stockName }
 
   const translateY = -(currentOffset * TOTAL_CARD_HEIGHT);
 
-  if (displayPrices.length === 0) {
-    return (
-      <div className="w-full max-w-[400px] mx-auto px-4">
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-gray-900 mb-4"></div>
-          <p className="text-gray-600 text-sm">読み込み中...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="w-full max-w-[400px] mx-auto px-4">
-      {stockCode && stockName && (
-        <div className="mb-4 text-center">
-          <h3 className="text-lg font-bold text-gray-900">
-            {stockCode} {stockName}
-          </h3>
-          <p className="text-sm text-gray-600 mt-1">過去の株価推移</p>
-        </div>
-      )}
+      <div className="mb-4 text-center">
+        <h3 className="text-lg font-bold text-gray-900">
+          {stockCode || '---'} {stockName || '---'}
+        </h3>
+        <p className="text-sm text-gray-600 mt-1">過去の株価推移</p>
+      </div>
 
       <div
         ref={containerRef}
