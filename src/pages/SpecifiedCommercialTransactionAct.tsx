@@ -69,7 +69,7 @@ export default function SpecifiedCommercialTransactionAct() {
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">メールアドレス</dt>
-                      <dd className="sm:col-span-2 text-blue-600">support@ostosk.jp</dd>
+                      <dd className="sm:col-span-2 text-blue-600">contact@financidsdgroup.jp</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">受付時間</dt>
@@ -113,7 +113,7 @@ export default function SpecifiedCommercialTransactionAct() {
                     <div>
                       <h3 className="font-bold text-gray-900 mb-1">基本サービス</h3>
                       <p className="text-sm text-gray-700">
-                        株価情報の閲覧、AI診断機能、レポートダウンロード
+                        株価情報の閲覧、AI分析機能、レポートダウンロード
                       </p>
                     </div>
                     <div className="text-right flex-shrink-0">
@@ -159,7 +159,7 @@ export default function SpecifiedCommercialTransactionAct() {
               <div className="bg-slate-50 rounded-lg p-5">
                 <p className="text-gray-700 leading-relaxed">
                   サービスはお申し込み後、即時ご利用いただけます。
-                  AI診断結果の生成には、通常数秒から数十秒程度のお時間をいただきます。
+                  AI分析結果の生成には、通常数秒から数十秒程度のお時間をいただきます。
                 </p>
               </div>
             </section>

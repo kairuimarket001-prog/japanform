@@ -8,7 +8,7 @@ export default function WelcomeSection() {
           AI株価情報分析へようこそ
         </h2>
         <p className="text-base lg:text-lg leading-relaxed mb-8" style={{ color: brandColor }}>
-          AI技術を活用した栫式情報分析で、投資判断の参考情報を提供します。証券コードを入力して、詳細な銘柄分析レポートを今すぐ取得。
+          AI技術を活用した株式情報分析で、投資判断の参考情報を提供します。証券コードを入力して、詳細な銘柄分析レポートを取得できます。
         </p>
 
         <div className="flex items-center gap-4 mt-12">

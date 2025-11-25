@@ -23,7 +23,7 @@ export default function Contact() {
 
           <div className="prose max-w-none">
             <p className="text-gray-700 leading-relaxed mb-8">
-              AI株式診断サービスをご利用いただき、誠にありがとうございます。
+              AI株式分析サービスをご利用いただき、誠にありがとうございます。
               ご質問、ご要望、不具合のご報告など、お気軽にお問い合わせください。
             </p>
 

@@ -16,12 +16,12 @@ export default function ModernActionButton({ onClick, disabled = false }: Modern
             height: '56px'
           }}
         >
-          <span className="text-lg">診断を開始する</span>
+          <span className="text-lg">分析を開始する</span>
         </button>
       </div>
       <div className="mt-4 text-center">
         <p className="text-xs text-gray-500 leading-relaxed">
-          ※本診断は投資助言ではありません。投資判断は自己責任でお願いいたします。
+          ※本分析は投資助言ではありません。投資判断は自己責任でお願いいたします。
         </p>
       </div>
     </>

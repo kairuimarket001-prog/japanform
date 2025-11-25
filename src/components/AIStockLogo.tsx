@@ -79,7 +79,7 @@ export default function AIStockLogo() {
           fontWeight="700"
           letterSpacing="2"
         >
-          AI株式診断
+          AI株式分析
         </text>
       </g>
 

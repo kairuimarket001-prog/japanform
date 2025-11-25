@@ -10,8 +10,8 @@ export default function TrustBadges() {
               <Shield className="w-4 h-4 text-white" />
             </div>
           </div>
-          <p className="text-xs font-bold text-cyan-100 drop-shadow-lg">完全無料</p>
-          <p className="text-[10px] text-cyan-200/80 drop-shadow-lg">永久無料提供</p>
+          <p className="text-xs font-bold text-cyan-100 drop-shadow-lg">無料</p>
+          <p className="text-[10px] text-cyan-200/80 drop-shadow-lg">現在無料提供中</p>
         </div>
 
         <div className="bg-gradient-to-br from-blue-500/20 to-blue-700/20 backdrop-blur-md border border-blue-400/40 rounded-lg p-3 text-center">
@@ -20,8 +20,8 @@ export default function TrustBadges() {
               <Lock className="w-4 h-4 text-white" />
             </div>
           </div>
-          <p className="text-xs font-bold text-blue-100 drop-shadow-lg">安全保護</p>
-          <p className="text-[10px] text-blue-200/80 drop-shadow-lg">データ暗号化</p>
+          <p className="text-xs font-bold text-blue-100 drop-shadow-lg">データ保護</p>
+          <p className="text-[10px] text-blue-200/80 drop-shadow-lg">SSL暗号化</p>
         </div>
 
         <div className="bg-gradient-to-br from-teal-500/20 to-teal-600/20 backdrop-blur-md border border-teal-400/40 rounded-lg p-3 text-center">
@@ -30,7 +30,7 @@ export default function TrustBadges() {
               <Zap className="w-4 h-4 text-white" />
             </div>
           </div>
-          <p className="text-xs font-bold text-teal-100 drop-shadow-lg">即時分析</p>
+          <p className="text-xs font-bold text-teal-100 drop-shadow-lg">迅速分析</p>
           <p className="text-[10px] text-teal-200/80 drop-shadow-lg">数秒で完了</p>
         </div>
 
