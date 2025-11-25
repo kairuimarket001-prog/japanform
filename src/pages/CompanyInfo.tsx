@@ -24,8 +24,8 @@ export default function CompanyInfo() {
           <div className="prose max-w-none">
             <section className="mb-8">
               <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-6 border-l-4 border-blue-500">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">株式会社アドバンス</h2>
-                <p className="text-lg text-gray-700 mb-2">Advance Co., Ltd.</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">株式会社デジタルアド</h2>
+                <p className="text-lg text-gray-700 mb-2">DigitalAd Co., Ltd.</p>
               </div>
             </section>
 
@@ -37,9 +37,9 @@ export default function CompanyInfo() {
                     <div>
                       <h3 className="font-bold text-gray-900 mb-2">所在地</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        〒101-0032<br />
-                        東京都千代田区岩本町2-8-2<br />
-                        都ビジネスビル9階
+                        〒163-0534<br />
+                        東京都新宿区西新宿1-6-1<br />
+                        新宿野村ビル21階
                       </p>
                     </div>
                   </div>
@@ -50,7 +50,7 @@ export default function CompanyInfo() {
                     <Calendar className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-bold text-gray-900 mb-2">設立</h3>
-                      <p className="text-gray-700 text-lg">2012年10月</p>
+                      <p className="text-gray-700 text-lg">2014年5月</p>
                     </div>
                   </div>
                 </div>
@@ -64,7 +64,7 @@ export default function CompanyInfo() {
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">業種</h3>
                     <p className="text-gray-700 text-lg leading-relaxed">
-                      デジタルマーケティング／広告戦略・運用／データ分析
+                      デジタル広告／データ分析／広告運用最適化
                     </p>
                   </div>
                 </div>
@@ -81,60 +81,60 @@ export default function CompanyInfo() {
                 <div className="bg-white border-2 border-blue-100 rounded-lg p-5 hover:border-blue-300 transition-colors">
                   <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                     <span className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                    中小企業向け広告戦略・デジタルマーケティングコンサルティング
+                    Google広告、Yahoo! JAPAN広告等検索広告運用
                   </h4>
                   <p className="text-gray-700 text-sm leading-relaxed ml-10">
-                    企業のビジネス目標に合わせた最適なデジタルマーケティング戦略の立案から実行までをトータルサポート
+                    主要な検索広告プラットフォームを活用し、費用対効果の高い広告運用を実現します
                   </p>
                 </div>
 
                 <div className="bg-white border-2 border-blue-100 rounded-lg p-5 hover:border-blue-300 transition-colors">
                   <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                     <span className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
-                    Google・Yahoo! JAPAN等を活用した検索広告・SNS広告運用
+                    SNS広告運用（Facebook、Instagram、Twitter等）
                   </h4>
                   <p className="text-gray-700 text-sm leading-relaxed ml-10">
-                    主要な広告プラットフォームを活用し、費用対効果の高い広告運用を実現
+                    主要SNSプラットフォームでの広告運用を通じて、ターゲット層への効果的なアプローチを実現します
                   </p>
                 </div>
 
                 <div className="bg-white border-2 border-blue-100 rounded-lg p-5 hover:border-blue-300 transition-colors">
                   <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                     <span className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
-                    コンテンツマーケティング、インフルエンサーマーケティング
+                    広告の効果測定、ROI分析、転換率最適化（CRO）
                   </h4>
                   <p className="text-gray-700 text-sm leading-relaxed ml-10">
-                    質の高いコンテンツ制作とインフルエンサーとの連携により、ブランド認知度向上と顧客獲得を支援
+                    詳細なデータ分析により広告投資収益率を測定し、コンバージョン率の継続的な改善を実現します
                   </p>
                 </div>
 
                 <div className="bg-white border-2 border-blue-100 rounded-lg p-5 hover:border-blue-300 transition-colors">
                   <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                     <span className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
-                    データ分析・広告効果測定（ROI分析・コンバージョン率向上）
+                    広告効果報告書作成、データ分析による改善提案
                   </h4>
                   <p className="text-gray-700 text-sm leading-relaxed ml-10">
-                    詳細なデータ分析により広告効果を可視化し、継続的な改善提案を実施
+                    分かりやすい報告書で広告効果を可視化し、データに基づいた具体的な改善提案を行います
                   </p>
                 </div>
 
                 <div className="bg-white border-2 border-blue-100 rounded-lg p-5 hover:border-blue-300 transition-colors">
                   <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                     <span className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
-                    マーケティングデータの可視化、報告書作成
+                    AIを活用した広告戦略最適化
                   </h4>
                   <p className="text-gray-700 text-sm leading-relaxed ml-10">
-                    複雑なマーケティングデータを分かりやすく可視化し、意思決定をサポートする報告書を作成
+                    AI技術を活用して広告パフォーマンスを予測・最適化し、効率的な広告戦略を立案します
                   </p>
                 </div>
 
                 <div className="bg-white border-2 border-blue-100 rounded-lg p-5 hover:border-blue-300 transition-colors">
                   <h4 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                     <span className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">6</span>
-                    デジタルトランスフォーメーション（DX）コンサルティング
+                    大データ分析の活用
                   </h4>
                   <p className="text-gray-700 text-sm leading-relaxed ml-10">
-                    企業のデジタル化を推進し、業務効率化とビジネス成長を実現するための戦略的コンサルティング
+                    大量のマーケティングデータを分析し、ビジネスの成長につながる洞察を提供します
                   </p>
                 </div>
               </div>
@@ -144,13 +144,12 @@ export default function CompanyInfo() {
               <div className="bg-gradient-to-r from-slate-100 to-slate-50 rounded-lg p-6 border border-slate-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">企業理念</h3>
                 <p className="text-gray-700 leading-relaxed mb-3">
-                  株式会社アドバンスは、中小企業のデジタルマーケティングを支援することを使命としています。
-                  データドリブンなアプローチにより、クライアント企業の成長を加速させ、
-                  持続可能なビジネス発展に貢献します。
+                  株式会社デジタルアドは、データ駆動型のデジタル広告ソリューションを提供することで、
+                  企業のマーケティング成果を最大化することを使命としています。
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  最新のテクノロジーと豊富な実績に基づく専門知識を活かし、
-                  お客様に最適なマーケティングソリューションを提供してまいります。
+                  AI技術と大データ分析を駆使し、広告効果の可視化からROI最適化まで、
+                  包括的な広告運用サービスを通じて、お客様のビジネス成長を強力にサポートします。
                 </p>
               </div>
             </section>

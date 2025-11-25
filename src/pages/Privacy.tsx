@@ -22,12 +22,12 @@ export default function Privacy() {
           </div>
 
           <div className="prose max-w-none">
-            <p className="text-sm text-gray-600 mb-6">最終更新日: 2025年10月21日</p>
+            <p className="text-sm text-gray-600 mb-6">最終更新日: 2025年11月25日</p>
 
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">1. 基本方針</h2>
               <p className="text-gray-700 leading-relaxed">
-                AI株式診断サービス（以下「当サービス」）の運営者である株式会社アドバンス（以下「当社」）は、利用者の個人情報の重要性を認識し、
+                AI株式診断サービス（以下「当サービス」）の運営者である株式会社デジタルアド（以下「当社」）は、利用者の個人情報の重要性を認識し、
                 個人情報の保護に関する法律（個人情報保護法）を遵守し、適切に取り扱い、保護することに努めます。
               </p>
             </section>
@@ -140,16 +140,16 @@ export default function Privacy() {
                 本ポリシーに関するご質問、個人情報の取り扱いに関するご相談は、お問い合わせフォームよりご連絡ください。
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>株式会社アドバンス (Advance Co., Ltd.)</strong>
+                <strong>株式会社デジタルアド (DigitalAd Co., Ltd.)</strong>
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                〒101-0032 東京都千代田区岩本町2-8-2 都ビジネスビル9階
+                〒163-0534 東京都新宿区西新宿1-6-1 新宿野村ビル21階
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                設立: 2012年10月
+                設立: 2014年5月
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                メール: support@aisbistock.com
+                メール: support@ostosk.jp
               </p>
               <p className="text-sm text-gray-700">
                 受付時間: 24時間受付（返信は営業日内）

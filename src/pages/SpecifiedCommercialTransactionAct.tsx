@@ -36,26 +36,26 @@ export default function SpecifiedCommercialTransactionAct() {
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">会社名</dt>
-                      <dd className="sm:col-span-2 text-gray-700">株式会社アドバンス</dd>
+                      <dd className="sm:col-span-2 text-gray-700">株式会社デジタルアド</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">会社名（英語）</dt>
-                      <dd className="sm:col-span-2 text-gray-700">Advance Co., Ltd.</dd>
+                      <dd className="sm:col-span-2 text-gray-700">DigitalAd Co., Ltd.</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">所在地</dt>
                       <dd className="sm:col-span-2 text-gray-700">
-                        〒101-0032<br />
-                        東京都千代田区岩本町2-8-2 都ビジネスビル9階
+                        〒163-0534<br />
+                        東京都新宿区西新宿1-6-1 新宿野村ビル21階
                       </dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">設立</dt>
-                      <dd className="sm:col-span-2 text-gray-700">2012年10月</dd>
+                      <dd className="sm:col-span-2 text-gray-700">2014年5月</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">業種</dt>
-                      <dd className="sm:col-span-2 text-gray-700">デジタルマーケティング／広告戦略・運用／データ分析</dd>
+                      <dd className="sm:col-span-2 text-gray-700">デジタル広告／データ分析／広告運用最適化</dd>
                     </div>
                   </dl>
                 </div>
@@ -65,14 +65,14 @@ export default function SpecifiedCommercialTransactionAct() {
             <section className="border-b border-gray-200 pb-6">
               <div className="flex items-start gap-4">
                 <div className="bg-green-50 p-3 rounded-lg flex-shrink-0">
-                  <Phone className="w-5 h-5 text-green-600" />
+                  <Mail className="w-5 h-5 text-green-600" />
                 </div>
                 <div className="flex-1">
                   <h2 className="text-xl font-bold text-gray-900 mb-4">連絡先</h2>
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">メールアドレス</dt>
-                      <dd className="sm:col-span-2 text-blue-600">support@aisbistock.com</dd>
+                      <dd className="sm:col-span-2 text-blue-600">support@ostosk.jp</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">受付時間</dt>
@@ -241,7 +241,7 @@ export default function SpecifiedCommercialTransactionAct() {
                   <Mail className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">メール</p>
-                    <p className="text-blue-600">support@aisbistock.com</p>
+                    <p className="text-blue-600">support@ostosk.jp</p>
                     <p className="text-sm text-gray-600 mt-1">24時間受付（返信は営業日内）</p>
                   </div>
                 </div>

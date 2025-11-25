@@ -163,19 +163,19 @@ export default function Contact() {
                 運営会社情報
               </h3>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>会社名:</strong> 株式会社アドバンス（Advance Co., Ltd.）
+                <strong>会社名:</strong> 株式会社デジタルアド（DigitalAd Co., Ltd.）
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>所在地:</strong> 〒101-0032 東京都千代田区岩本町2-8-2 都ビジネスビル9階
+                <strong>所在地:</strong> 〒163-0534 東京都新宿区西新宿1-6-1 新宿野村ビル21階
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>設立:</strong> 2012年10月
+                <strong>設立:</strong> 2014年5月
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>業種:</strong> デジタルマーケティング／広告戦略・運用／データ分析
+                <strong>業種:</strong> デジタル広告／データ分析／広告運用最適化
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>メールアドレス:</strong> support@aisbistock.com
+                <strong>メールアドレス:</strong> support@ostosk.jp
               </p>
               <p className="text-sm text-gray-700">
                 <strong>受付時間:</strong> 24時間受付（返信は営業日内）
