@@ -39,7 +39,7 @@ export default function BrandHeader() {
         </svg>
       </div>
       <div>
-        <h1 className="text-lg md:text-xl font-bold text-fintech-text-primary leading-none">
+        <h1 className="text-lg md:text-xl font-bold text-blue-700 leading-none">
           AI株価インテリジェンス
         </h1>
       </div>

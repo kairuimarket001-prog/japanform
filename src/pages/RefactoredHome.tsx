@@ -441,11 +441,11 @@ export default function RefactoredHome() {
 
             <div className="w-full flex items-center justify-center">
               <LoginCard>
-              <div className="mb-6 text-center">
-                <h3 className="text-xl font-bold text-fintech-text-primary mb-2">
+              <div className="mb-6 mt-10 text-left">
+                <h3 className="text-2xl font-bold text-blue-600 mb-2">
                   株価診断
                 </h3>
-                <p className="text-sm text-fintech-text-secondary">
+                <p className="text-base text-blue-500">
                   証券コードを入力してください
                 </p>
               </div>

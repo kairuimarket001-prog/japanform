@@ -8,7 +8,7 @@ export default function BottomLinks({ onCreateAccount }: BottomLinksProps) {
       <div>
         <a
           href="/contact"
-          className="text-sm text-fintech-text-secondary hover:text-fintech-text-primary transition-colors duration-200"
+          className="text-sm text-blue-500 hover:text-blue-700 transition-colors duration-200"
         >
           認証に問題があります
         </a>
@@ -16,7 +16,7 @@ export default function BottomLinks({ onCreateAccount }: BottomLinksProps) {
       <div>
         <button
           onClick={onCreateAccount}
-          className="text-sm text-fintech-success hover:text-fintech-success-hover font-semibold transition-colors duration-200 flex items-center gap-1 justify-center mx-auto group"
+          className="text-sm text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200 flex items-center gap-1 justify-center mx-auto group"
         >
           <span>オンラインでアカウントを作成</span>
           <svg
