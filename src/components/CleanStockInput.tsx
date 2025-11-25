@@ -23,8 +23,8 @@ export default function CleanStockInput({
 
   return (
     <div className="max-w-2xl mx-auto px-6 py-4">
-      <div className="flex gap-3">
-        <div className="flex-1 relative">
+      <div className="space-y-3">
+        <div className="relative">
           <input
             type="text"
             value={value}
@@ -39,7 +39,7 @@ export default function CleanStockInput({
         <button
           onClick={onSubmit}
           disabled={loading || !value.trim()}
-          className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+          className="w-full px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
         >
           {loading ? 'Analyzing...' : 'Analyze'}
         </button>
