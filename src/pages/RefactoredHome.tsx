@@ -67,7 +67,7 @@ export default function RefactoredHome() {
     setShowLoadingScene(true);
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1500 + Math.random() * 500));
 
       setShowLoadingScene(false);
 
