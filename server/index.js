@@ -10,6 +10,7 @@ import trackingRouter from './routes/tracking.js';
 import lineRedirectRouter from './routes/lineRedirect.js';
 import googleTrackingRouter from './routes/googleTracking.js';
 import { cleanExpiredCache } from './utils/sqliteCache.js';
+import { createBackup } from './utils/databaseBackup.js';
 import './database/sqlite.js';
 
 dotenv.config();
@@ -22,10 +23,17 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const CORS_ORIGIN = process.env.CORS_ORIGIN;
 const TRUST_PROXY = process.env.TRUST_PROXY === 'true';
 
+createBackup();
+
 setInterval(async () => {
   console.log('Running scheduled cache cleanup...');
   await cleanExpiredCache();
 }, 60 * 60 * 1000);
+
+setInterval(() => {
+  console.log('Creating scheduled database backup...');
+  createBackup();
+}, 24 * 60 * 60 * 1000);
 
 function validateApiConfiguration() {
   const apiKey = process.env.SILICONFLOW_API_KEY || process.env.SILICONFLOW_API_KEYS;
