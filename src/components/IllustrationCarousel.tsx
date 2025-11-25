@@ -159,7 +159,7 @@ export default function IllustrationCarousel() {
           background: currentItem.background,
         }}
       >
-        <div className="relative p-6 pb-14 min-h-[320px] flex flex-col">
+        <div className="relative p-6 pb-14 min-h-[280px] flex flex-col">
           <div className="absolute -top-8 -left-8 z-20">
             <div className="relative">{currentItem.topLeftIcon}</div>
           </div>
