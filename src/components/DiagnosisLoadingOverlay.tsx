@@ -56,7 +56,7 @@ export default function DiagnosisLoadingOverlay({
       }`}
       style={{ touchAction: 'none' }}
     >
-      <div className={`w-full max-w-2xl transition-transform duration-500 ${
+      <div className={`w-[95%] max-w-2xl transition-transform duration-500 ${
         isExiting ? 'scale-95' : 'scale-100'
       }`}>
         <div
