@@ -6,9 +6,9 @@ const carouselItems = [
     background: 'repeating-conic-gradient(#bae6fd 0% 25%, #e0f2fe 0% 50%) 50% / 20px 20px',
     rotation: '2deg',
     titleLine1: 'AIで分析',
-    titleLine2: '株式情報',
-    titleLine3: 'ツール',
-    highlightedWord: '株式情報',
+    titleLine2: '株式情報ツール',
+    titleLine3: '',
+    highlightedWord: '株式情報ツール',
     topLeftIcon: (
       <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="36" cy="36" r="34" fill="#0ea5e9" />
@@ -62,9 +62,9 @@ const carouselItems = [
     background: 'repeating-conic-gradient(#fed7aa 0% 25%, #ffedd5 0% 50%) 50% / 20px 20px',
     rotation: '2deg',
     titleLine1: '株式情報',
-    titleLine2: 'レポート',
-    titleLine3: '作成',
-    highlightedWord: 'レポート',
+    titleLine2: 'レポート作成',
+    titleLine3: '',
+    highlightedWord: 'レポート作成',
     topLeftIcon: (
       <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
