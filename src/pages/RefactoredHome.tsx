@@ -470,16 +470,16 @@ export default function RefactoredHome() {
             </div>
 
             <div className="w-[95%] mx-auto mb-4">
-              <div className="overflow-hidden bg-gradient-to-r from-teal-500 via-ocean-500 to-teal-500 py-2 shadow-lg rounded-xl">
+              <div className="overflow-hidden bg-gradient-to-r from-ocean-600 via-ocean-500 to-teal-600 py-3 shadow-xl rounded-xl border border-ocean-400/30">
                 <div className="animate-scroll-left whitespace-nowrap inline-block">
                   {[...diagnosisRecords, ...diagnosisRecords, ...diagnosisRecords].map((record, index) => (
-                    <span key={index} className="inline-flex items-center mx-4 text-white">
-                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/20 mr-2 text-sm">
+                    <span key={index} className="inline-flex items-center mx-4 text-white drop-shadow-sm">
+                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/30 mr-2 text-sm shadow-sm">
                         {record.icon}
                       </span>
-                      <span className="text-sm font-medium mr-2 text-amber-200">{record.time}</span>
-                      <span className="text-sm font-bold mr-2">{record.stock}</span>
-                      <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">無料レポート取得</span>
+                      <span className="text-sm font-semibold mr-2 text-amber-300">{record.time}</span>
+                      <span className="text-sm font-bold mr-2 text-white">{record.stock}</span>
+                      <span className="text-xs bg-white/25 px-2.5 py-1 rounded-full font-medium shadow-sm backdrop-blur-sm">無料レポート取得</span>
                     </span>
                   ))}
                 </div>
