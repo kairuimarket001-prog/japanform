@@ -5,7 +5,6 @@ import ProcessSteps from '../components/ProcessSteps';
 import CleanStockInput from '../components/CleanStockInput';
 import SimpleAnalysisModal from '../components/SimpleAnalysisModal';
 import DisclaimerBanner from '../components/DisclaimerBanner';
-import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
 import { apiClient } from '../lib/apiClient';
@@ -16,10 +15,7 @@ import { generateDiagnosisReport } from '../lib/reportGenerator';
 
 export default function RefactoredHome() {
   const urlParams = useUrlParams();
-  const [stockCode, setStockCode] = useState('');
   const [inputValue, setInputValue] = useState('');
-  const [stockData, setStockData] = useState<StockData | null>(null);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const [diagnosisState, setDiagnosisState] = useState<DiagnosisState>('initial');
@@ -30,85 +26,21 @@ export default function RefactoredHome() {
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    if (urlParams.code) {
-      setStockCode(urlParams.code);
-      setInputValue(urlParams.code);
-      fetchStockData(urlParams.code);
-    } else {
-      setStockCode('');
-      setInputValue('');
-    }
-  }, [urlParams.code]);
-
-  useEffect(() => {
     const trackPageVisit = async () => {
-      if (stockData) {
-        await userTracking.trackPageLoad({
-          stockCode: stockCode,
-          stockName: stockData.info.name,
-          urlParams: {
-            src: urlParams.src || '',
-            gclid: urlParams.gclid || '',
-            racText: urlParams.racText || '',
-            code: urlParams.code || ''
-          }
-        });
-      }
+      await userTracking.trackPageLoad({
+        stockCode: '',
+        stockName: '',
+        urlParams: {
+          src: urlParams.src || '',
+          gclid: urlParams.gclid || '',
+          racText: urlParams.racText || '',
+          code: ''
+        }
+      });
     };
 
     trackPageVisit();
-  }, [stockData, stockCode, urlParams]);
-
-  const fetchStockData = async (code: string) => {
-    const cleanCode = code.replace(/[^\d]/g, '');
-
-    if (!cleanCode || !/^\d{4}$/.test(cleanCode)) {
-      setStockData(null);
-      setStockCode(cleanCode);
-      setError(null);
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-
-    try {
-      const response = await apiClient.get(`/api/stock/data?code=${cleanCode}`);
-
-      if (!response.ok) {
-        setStockData(null);
-        setStockCode(cleanCode);
-        setError(null);
-        return;
-      }
-
-      const data = await response.json();
-      setStockData(data);
-      setStockCode(cleanCode);
-      setError(null);
-    } catch (err) {
-      setStockData(null);
-      setStockCode(cleanCode);
-      setError(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleStockSelect = (code: string, name: string) => {
-    setStockCode(code);
-    fetchStockData(code);
-  };
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (inputValue) {
-        fetchStockData(inputValue);
-      }
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [inputValue]);
+  }, [urlParams]);
 
   useEffect(() => {
     return () => {
@@ -120,8 +52,8 @@ export default function RefactoredHome() {
 
   const runDiagnosis = async () => {
     if (diagnosisState !== 'initial') return;
-    if (!stockCode || !stockData) {
-      setError('Please enter a valid stock symbol');
+    if (!inputValue || !inputValue.trim()) {
+      setError('Please enter a stock symbol');
       return;
     }
 
@@ -163,18 +95,8 @@ export default function RefactoredHome() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          code: stockCode,
-          stockData: stockData ? {
-            name: stockData.info.name,
-            price: stockData.info.price,
-            change: stockData.info.change,
-            changePercent: stockData.info.changePercent,
-            per: stockData.info.per,
-            pbr: stockData.info.pbr,
-            dividend: stockData.info.dividend,
-            industry: stockData.info.industry,
-            marketCap: stockData.info.marketCap,
-          } : null,
+          code: inputValue.trim(),
+          stockData: null,
         }),
         signal: controller.signal,
       });
@@ -223,8 +145,8 @@ export default function RefactoredHome() {
                     if (data.done) {
                       setLoadingProgress(100);
                       await userTracking.trackDiagnosis({
-                        stockCode: stockCode,
-                        stockName: stockData?.info.name || stockCode,
+                        stockCode: inputValue.trim(),
+                        stockName: inputValue.trim(),
                         success: true,
                         durationMs: Date.now() - diagnosisStartTime
                       });
@@ -256,8 +178,8 @@ export default function RefactoredHome() {
 
         setLoadingProgress(100);
         await userTracking.trackDiagnosis({
-          stockCode: stockCode,
-          stockName: stockData?.info.name || stockCode,
+          stockCode: inputValue.trim(),
+          stockName: inputValue.trim(),
           success: true,
           durationMs: Date.now() - diagnosisStartTime
         });
@@ -274,8 +196,8 @@ export default function RefactoredHome() {
           setAnalysisResult(data.analysis);
           setLoadingProgress(100);
           await userTracking.trackDiagnosis({
-            stockCode: stockCode,
-            stockName: stockData?.info.name || stockCode,
+            stockCode: inputValue.trim(),
+            stockName: inputValue.trim(),
             success: true,
             durationMs: Date.now() - diagnosisStartTime
           });
@@ -289,8 +211,8 @@ export default function RefactoredHome() {
       setLoadingProgress(0);
 
       await userTracking.trackDiagnosis({
-        stockCode: stockCode,
-        stockName: stockData?.info.name || stockCode,
+        stockCode: inputValue.trim(),
+        stockName: inputValue.trim(),
         success: false,
         durationMs: Date.now() - diagnosisStartTime,
         errorMessage: err.message
@@ -395,8 +317,8 @@ export default function RefactoredHome() {
       }
 
       await generateDiagnosisReport({
-        stockCode: stockCode,
-        stockName: stockData?.info.name || '',
+        stockCode: inputValue.trim(),
+        stockName: inputValue.trim(),
         analysis: analysisResult,
         lineRedirectUrl: lineRedirectUrl
       });
@@ -404,8 +326,8 @@ export default function RefactoredHome() {
       await userTracking.trackEvent({
         sessionId: sessionStorage.getItem('sessionId') || '',
         eventType: 'report_download',
-        stockCode: stockCode,
-        stockName: stockData?.info.name || '',
+        stockCode: inputValue.trim(),
+        stockName: inputValue.trim(),
         eventData: {
           reportFormat: 'docx',
           timestamp: new Date().toISOString()
@@ -426,9 +348,7 @@ export default function RefactoredHome() {
     setShowLoadingScene(false);
     setDiagnosisStartTime(0);
     setError(null);
-    setStockCode('');
     setInputValue('');
-    setStockData(null);
 
     if (progressIntervalRef.current) {
       clearInterval(progressIntervalRef.current);
@@ -444,24 +364,9 @@ export default function RefactoredHome() {
         value={inputValue}
         onChange={setInputValue}
         onSubmit={runDiagnosis}
-        loading={loading || diagnosisState === 'connecting'}
+        loading={diagnosisState === 'connecting'}
         error={error}
       />
-
-      {stockData && diagnosisState === 'initial' && !error && (
-        <div className="max-w-2xl mx-auto px-6 py-4 text-center">
-          <p className="text-gray-700 mb-4">
-            Stock found: <strong>{stockData.info.name}</strong> ({stockCode})
-          </p>
-          <button
-            onClick={runDiagnosis}
-            disabled={loading}
-            className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
-          >
-            Start Analysis
-          </button>
-        </div>
-      )}
 
       <FeatureGrid />
       <ProcessSteps />
@@ -471,8 +376,8 @@ export default function RefactoredHome() {
         isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}
         onClose={closeModal}
         analysis={analysisResult}
-        stockCode={stockCode}
-        stockName={stockData?.info.name || stockCode}
+        stockCode={inputValue.trim()}
+        stockName={inputValue.trim()}
         onReportDownload={handleReportDownload}
         isStreaming={diagnosisState === 'streaming'}
         isConnecting={diagnosisState === 'connecting'}
