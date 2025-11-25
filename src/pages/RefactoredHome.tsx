@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import ModernGradientBackground from '../components/ModernGradientBackground';
 import DiagnosisTicker from '../components/DiagnosisTicker';
-import HistoricalPriceCarousel from '../components/HistoricalPriceCarousel';
+import IllustrationCarousel from '../components/IllustrationCarousel';
 import FormContainer from '../components/FormContainer';
 import ModernStockInput from '../components/ModernStockInput';
 import ModernActionButton from '../components/ModernActionButton';
@@ -50,9 +50,8 @@ export default function RefactoredHome() {
       setInputValue(urlParams.code);
       fetchStockData(urlParams.code);
     } else {
-      setStockCode('7203');
-      setInputValue('7203');
-      fetchStockData('7203');
+      setStockCode('');
+      setInputValue('');
     }
   }, [urlParams.code]);
 
@@ -467,11 +466,7 @@ export default function RefactoredHome() {
         {!showLoadingScene ? (
           <div className="flex-1 flex flex-col">
             <div className="flex-[6] flex flex-col items-center justify-center px-4 py-8">
-              <HistoricalPriceCarousel
-                prices={stockData?.prices || []}
-                stockCode={stockData?.info.code}
-                stockName={stockData?.info.name}
-              />
+              <IllustrationCarousel />
             </div>
 
             <div className="w-[95%] mx-auto mb-4">
