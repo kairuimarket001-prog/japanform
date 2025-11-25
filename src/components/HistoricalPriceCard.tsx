@@ -33,43 +33,42 @@ function HistoricalPriceCard({ price, isFocused = false }: HistoricalPriceCardPr
   return (
     <div className={`
       bg-white rounded-2xl transition-all duration-300 flex items-center
-      ${isFocused ? 'shadow-xl p-5 min-h-[90px]' : 'shadow-md p-4 min-h-[85px]'}
+      h-[90px] p-5
+      ${isFocused ? 'shadow-xl' : 'shadow-md'}
     `}>
       <div className="flex items-center justify-between w-full gap-4">
         <div className="flex-1 min-w-0">
           <div className={`
-            ${isFocused ? 'text-base' : 'text-sm'}
-            font-semibold whitespace-nowrap
+            text-base font-semibold whitespace-nowrap
             ${isPlaceholder ? 'text-gray-400' : 'text-gray-900'}
           `}>
             {price.date}
           </div>
-          <div className={`${isFocused ? 'text-xs' : 'text-[10px]'} text-gray-500 mt-0.5`}>
+          <div className="text-xs text-gray-500 mt-0.5">
             始値 {price.open}{!isPlaceholder && '円'}
           </div>
         </div>
 
         <div className="flex-1 text-center">
           <div className={`
-            ${isFocused ? 'text-2xl' : 'text-xl'}
-            font-bold
+            text-2xl font-bold
             ${isPlaceholder ? 'text-gray-400' : 'text-gray-900'}
           `}>
             {price.close}
           </div>
-          <div className={`${isFocused ? 'text-xs' : 'text-[10px]'} text-gray-500`}>
+          <div className="text-xs text-gray-500">
             {!isPlaceholder && '円'}
           </div>
         </div>
 
         <div className={`flex-1 text-right ${getTrendColor()}`}>
-          <div className={`inline-flex items-center gap-1 ${isFocused ? 'px-3 py-1.5' : 'px-2 py-1'} rounded-full ${getTrendBgColor()}`}>
-            <TrendIcon className={isFocused ? 'w-4 h-4' : 'w-3 h-3'} />
-            <span className={`${isFocused ? 'text-sm' : 'text-xs'} font-semibold`}>
+          <div className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full ${getTrendBgColor()}`}>
+            <TrendIcon className="w-4 h-4" />
+            <span className="text-sm font-semibold">
               {!isPlaceholder && isPositive && '+'}{price.changePercent}
             </span>
           </div>
-          <div className={`${isFocused ? 'text-xs' : 'text-[10px]'} mt-1`}>
+          <div className="text-xs mt-1">
             {!isPlaceholder && isPositive && '+'}{price.change}{!isPlaceholder && '円'}
           </div>
         </div>

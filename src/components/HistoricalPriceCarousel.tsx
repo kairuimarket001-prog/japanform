@@ -32,11 +32,11 @@ interface CardStyle {
 
 const getCardStyle = (position: number): CardStyle => {
   const styles: Record<string, CardStyle> = {
-    '-2': { width: '70%', opacity: 0.4, blur: 'backdrop-blur-md', scale: 0.88, zIndex: 1, translateY: -40 },
-    '-1': { width: '85%', opacity: 0.6, blur: 'backdrop-blur-sm', scale: 0.94, zIndex: 2, translateY: -20 },
+    '-2': { width: '70%', opacity: 0.4, blur: 'backdrop-blur-md', scale: 0.96, zIndex: 1, translateY: 0 },
+    '-1': { width: '85%', opacity: 0.6, blur: 'backdrop-blur-sm', scale: 0.98, zIndex: 2, translateY: 0 },
     '0': { width: '100%', opacity: 1.0, blur: '', scale: 1.0, zIndex: 3, translateY: 0 },
-    '1': { width: '85%', opacity: 0.6, blur: 'backdrop-blur-sm', scale: 0.94, zIndex: 2, translateY: 20 },
-    '2': { width: '70%', opacity: 0.4, blur: 'backdrop-blur-md', scale: 0.88, zIndex: 1, translateY: 40 },
+    '1': { width: '85%', opacity: 0.6, blur: 'backdrop-blur-sm', scale: 0.98, zIndex: 2, translateY: 0 },
+    '2': { width: '70%', opacity: 0.4, blur: 'backdrop-blur-md', scale: 0.96, zIndex: 1, translateY: 0 },
   };
 
   return styles[position.toString()] || styles['2'];
@@ -78,7 +78,7 @@ export default function HistoricalPriceCarousel({ prices, stockCode, stockName }
 
       <div
         className="relative"
-        style={{ height: '480px' }}
+        style={{ height: '130px' }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
