@@ -4,7 +4,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary Ocean Blue Theme
+        // Financial Tech Primary Colors
+        'fintech-blue': '#1E3A8A',
+        'fintech-blue-light': '#3B82F6',
+        'fintech-blue-dark': '#1E40AF',
+
+        // Background Colors
+        'fintech-bg': '#F5F7FA',
+        'fintech-bg-secondary': '#E5E7EB',
+        'fintech-card': '#FFFFFF',
+
+        // Text Colors
+        'fintech-text-primary': '#111827',
+        'fintech-text-secondary': '#6B7280',
+        'fintech-text-tertiary': '#9CA3AF',
+
+        // Border Colors
+        'fintech-border': '#E5E7EB',
+        'fintech-border-dark': '#D1D5DB',
+        'fintech-border-focus': '#1E3A8A',
+
+        // Action Colors
+        'fintech-link': '#2563EB',
+        'fintech-link-hover': '#1D4ED8',
+        'fintech-success': '#10B981',
+        'fintech-success-hover': '#059669',
+
+        // Legacy Ocean Blue Theme (kept for compatibility)
         'ocean-50': '#f0f9ff',
         'ocean-100': '#e0f2fe',
         'ocean-200': '#bae6fd',
@@ -15,18 +41,6 @@ export default {
         'ocean-700': '#0369a1',
         'ocean-800': '#075985',
         'ocean-900': '#0c4a6e',
-
-        // Complementary Coral/Peach Accent
-        'coral-50': '#fff7ed',
-        'coral-100': '#ffedd5',
-        'coral-200': '#fed7aa',
-        'coral-300': '#fdba74',
-        'coral-400': '#fb923c',
-        'coral-500': '#f97316',
-        'coral-600': '#ea580c',
-        'coral-700': '#c2410c',
-        'coral-800': '#9a3412',
-        'coral-900': '#7c2d12',
 
         // Teal Supporting Color
         'teal-50': '#f0fdfa',
@@ -39,22 +53,6 @@ export default {
         'teal-700': '#0f766e',
         'teal-800': '#115e59',
         'teal-900': '#134e4a',
-
-        // Soft Amber for CTAs
-        'amber-50': '#fffbeb',
-        'amber-100': '#fef3c7',
-        'amber-200': '#fde68a',
-        'amber-300': '#fcd34d',
-        'amber-400': '#fbbf24',
-        'amber-500': '#f59e0b',
-        'amber-600': '#d97706',
-        'amber-700': '#b45309',
-        'amber-800': '#92400e',
-        'amber-900': '#78350f',
-
-        // Legacy aliases (for gradual migration)
-        'light-blue': '#e0f2fe',
-        'pale-blue': '#dbeafe',
       },
       backgroundImage: {
         'ocean-gradient': 'linear-gradient(to bottom, #f0f9ff, #e0f2fe, #bae6fd)',
@@ -67,12 +65,12 @@ export default {
         'peaceful-sky': 'linear-gradient(to bottom, #ffffff, #f0f9ff, #e0f2fe)',
       },
       boxShadow: {
+        'fintech-card': '0 4px 20px rgba(0, 0, 0, 0.08)',
+        'fintech-card-hover': '0 6px 24px rgba(0, 0, 0, 0.12)',
         'ocean-glow': '0 0 20px rgba(14, 165, 233, 0.4)',
         'ocean-glow-lg': '0 0 40px rgba(14, 165, 233, 0.5)',
         'teal-glow': '0 0 20px rgba(20, 184, 166, 0.4)',
         'teal-glow-lg': '0 0 40px rgba(20, 184, 166, 0.5)',
-        'coral-glow': '0 0 20px rgba(251, 146, 60, 0.4)',
-        'amber-glow': '0 0 15px rgba(251, 191, 36, 0.5)',
       },
       animation: {
         'pulse-ocean': 'pulse-ocean 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -94,8 +92,9 @@ export default {
         },
       },
       fontFamily: {
-        'title': ['HYYaKuHeiW', 'Noto Sans JP', 'sans-serif'],
-        'subtitle': ['Adobe Heiti Std', 'Hiragino Sans', 'sans-serif'],
+        'sans': ['Noto Sans JP', 'Yu Gothic', 'Hiragino Sans', 'sans-serif'],
+        'title': ['Noto Sans JP', 'Yu Gothic', 'Hiragino Sans', 'sans-serif'],
+        'subtitle': ['Noto Sans JP', 'Yu Gothic', 'Hiragino Sans', 'sans-serif'],
       },
       spacing: {
         '7.5': '30px',

@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-import ModernGradientBackground from '../components/ModernGradientBackground';
-import DiagnosisTicker from '../components/DiagnosisTicker';
-import IllustrationCarousel from '../components/IllustrationCarousel';
-import FormContainer from '../components/FormContainer';
-import ModernStockInput from '../components/ModernStockInput';
-import ModernActionButton from '../components/ModernActionButton';
-import InlineLoadingScene from '../components/InlineLoadingScene';
+import FinancialBackground from '../components/FinancialBackground';
+import BrandHeader from '../components/BrandHeader';
+import WelcomeSection from '../components/WelcomeSection';
+import LoginCard from '../components/LoginCard';
+import MinimalStockInput from '../components/MinimalStockInput';
+import AIAuthLink from '../components/AIAuthLink';
+import BottomLinks from '../components/BottomLinks';
 import DiagnosisModal from '../components/DiagnosisModal';
-import ApiStatsDisplay from '../components/ApiStatsDisplay';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -16,18 +15,6 @@ import { userTracking } from '../lib/userTracking';
 import { trackConversion, trackDiagnosisButtonClick, trackConversionButtonClick } from '../lib/googleTracking';
 import { generateDiagnosisReport } from '../lib/reportGenerator';
 
-const diagnosisRecords = [
-  { time: '2分前', stock: 'トヨタ自動車', icon: '👨' },
-  { time: '5分前', stock: 'ソニーグループ', icon: '👩' },
-  { time: '8分前', stock: '任天堂', icon: '👨' },
-  { time: '12分前', stock: 'ソフトバンクグループ', icon: '👩' },
-  { time: '15分前', stock: 'キーエンス', icon: '👨' },
-  { time: '18分前', stock: '三菱UFJ', icon: '👩' },
-  { time: '22分前', stock: 'ファーストリテイリング', icon: '👨' },
-  { time: '25分前', stock: '東京エレクトロン', icon: '👩' },
-  { time: '28分前', stock: 'リクルート', icon: '👨' },
-  { time: '32分前', stock: 'KDDI', icon: '👩' },
-];
 
 export default function RefactoredHome() {
   const urlParams = useUrlParams();
@@ -443,82 +430,74 @@ export default function RefactoredHome() {
 
   return (
     <div className="min-h-screen relative flex flex-col">
-      <ModernGradientBackground />
+      <FinancialBackground />
+      <BrandHeader />
 
-      <div className="relative z-10 flex-1 flex flex-col">
-        <ApiStatsDisplay />
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="w-full grid md:grid-cols-2 gap-8 md:gap-12 items-center px-6 py-12 md:py-0">
+          <WelcomeSection />
 
-        {!showLoadingScene ? (
-          <div className="flex-1 flex flex-col">
-            <div className="flex-[6] flex flex-col items-center justify-center px-4 py-8">
-              <IllustrationCarousel />
-            </div>
-
-            <div className="w-[95%] mx-auto mb-4">
-              <div className="overflow-hidden bg-gradient-to-r from-ocean-600 via-ocean-500 to-teal-600 py-3 shadow-xl rounded-xl border border-ocean-400/30">
-                <div className="animate-scroll-left whitespace-nowrap inline-block">
-                  {[...diagnosisRecords, ...diagnosisRecords, ...diagnosisRecords].map((record, index) => (
-                    <span key={index} className="inline-flex items-center mx-4 text-white drop-shadow-sm">
-                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/30 mr-2 text-sm shadow-sm">
-                        {record.icon}
-                      </span>
-                      <span className="text-sm font-semibold mr-2 text-amber-300">{record.time}</span>
-                      <span className="text-sm font-bold mr-2 text-white">{record.stock}</span>
-                      <span className="text-xs bg-white/25 px-2.5 py-1 rounded-full font-medium shadow-sm backdrop-blur-sm">無料レポート取得</span>
-                    </span>
-                  ))}
-                </div>
+          <div className="flex items-center justify-center">
+            <LoginCard>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-fintech-text-primary mb-2">
+                  株価診断
+                </h3>
+                <p className="text-sm text-fintech-text-secondary">
+                  証券コードを入力してください
+                </p>
               </div>
-            </div>
 
-            <div className="flex-[4] flex flex-col justify-end">
-              <FormContainer>
-                <ModernStockInput
-                  value={inputValue}
-                  onChange={setInputValue}
-                  onStockSelect={handleStockSelect}
-                />
+              <MinimalStockInput
+                value={inputValue}
+                onChange={setInputValue}
+                onStockSelect={handleStockSelect}
+              />
 
-                {loading && (
-                  <div className="text-center py-4 animate-fadeIn">
-                    <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-gray-900"></div>
-                    <p className="mt-2 text-gray-600 text-sm">Loading...</p>
-                  </div>
-                )}
+              {loading && (
+                <div className="text-center py-6 animate-fadeIn">
+                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-fintech-border border-t-fintech-blue"></div>
+                  <p className="mt-2 text-fintech-text-secondary text-sm">読み込み中...</p>
+                </div>
+              )}
 
-                {error && diagnosisState !== 'error' && (
-                  <div className="bg-red-50 border border-red-200 rounded-xl p-3 text-center animate-fadeIn mt-4">
-                    <p className="text-red-600 text-sm font-semibold">{error}</p>
-                  </div>
-                )}
+              {error && diagnosisState !== 'error' && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-center animate-fadeIn mt-4">
+                  <p className="text-red-600 text-sm font-semibold">{error}</p>
+                </div>
+              )}
 
-                {!loading && diagnosisState === 'initial' && (
-                  <ModernActionButton onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
-                )}
+              {!loading && diagnosisState === 'initial' && (
+                <AIAuthLink onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
+              )}
 
-                {diagnosisState === 'error' && (
-                  <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-center animate-fadeIn mt-4">
-                    <h3 className="text-lg font-bold text-red-600 mb-2">診断エラー</h3>
-                    <p className="text-red-600 text-sm mb-4 whitespace-pre-line">{error}</p>
-                    <button
-                      onClick={() => {
-                        setDiagnosisState('initial');
-                        setError(null);
-                      }}
-                      className="px-6 py-3 bg-gray-900 text-white font-bold rounded-xl transition-all shadow-lg hover:opacity-90"
-                    >
-                      もう一度試す
-                    </button>
-                  </div>
-                )}
-              </FormContainer>
-            </div>
+              {diagnosisState === 'error' && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center animate-fadeIn mt-4">
+                  <h3 className="text-lg font-bold text-red-600 mb-2">診断エラー</h3>
+                  <p className="text-red-600 text-sm mb-4 whitespace-pre-line">{error}</p>
+                  <button
+                    onClick={() => {
+                      setDiagnosisState('initial');
+                      setError(null);
+                    }}
+                    className="px-6 py-3 bg-fintech-blue text-white font-semibold rounded-lg transition-all shadow-md hover:bg-fintech-blue-dark"
+                  >
+                    もう一度試す
+                  </button>
+                </div>
+              )}
+
+              {diagnosisState === 'connecting' && (
+                <div className="text-center py-6 animate-fadeIn mt-4">
+                  <div className="inline-block animate-spin rounded-full h-10 w-10 border-4 border-fintech-border border-t-fintech-blue mb-3"></div>
+                  <p className="text-fintech-text-secondary text-sm font-medium">AI分析中...</p>
+                </div>
+              )}
+
+              <BottomLinks onCreateAccount={handleLineConversion} />
+            </LoginCard>
           </div>
-        ) : (
-          <div className="flex-1 flex items-center justify-center">
-            <InlineLoadingScene isVisible={showLoadingScene} />
-          </div>
-        )}
+        </div>
       </div>
 
       <DiagnosisModal
