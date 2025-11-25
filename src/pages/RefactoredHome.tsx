@@ -434,12 +434,13 @@ export default function RefactoredHome() {
       <FinancialBackground />
       <BrandHeader />
 
-      <div className="relative z-10 flex-1 flex items-center">
-        <div className="w-full grid md:grid-cols-2 gap-8 md:gap-12 items-center px-6 py-12 md:py-0">
-          <WelcomeSection />
+      <div className="relative z-10 flex-1 flex items-center justify-center">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center px-6 py-12 md:py-0">
+            <WelcomeSection />
 
-          <div className="flex items-center justify-center">
-            <LoginCard>
+            <div className="w-full flex items-center justify-center">
+              <LoginCard>
               <div className="mb-6 text-center">
                 <h3 className="text-xl font-bold text-fintech-text-primary mb-2">
                   株価診断
@@ -499,6 +500,7 @@ export default function RefactoredHome() {
 
               {diagnosisState === 'initial' && <BottomLinks onCreateAccount={handleLineConversion} />}
             </LoginCard>
+          </div>
           </div>
         </div>
       </div>
