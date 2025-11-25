@@ -1,13 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
-import FinancialBackground from '../components/FinancialBackground';
-import BrandHeader from '../components/BrandHeader';
-import WelcomeSection from '../components/WelcomeSection';
-import LoginCard from '../components/LoginCard';
-import MinimalStockInput from '../components/MinimalStockInput';
-import AIAuthLink from '../components/AIAuthLink';
-import BottomLinks from '../components/BottomLinks';
-import RadarAnimation from '../components/RadarAnimation';
-import DiagnosisModal from '../components/DiagnosisModal';
+import HeroSection from '../components/HeroSection';
+import FeatureGrid from '../components/FeatureGrid';
+import ProcessSteps from '../components/ProcessSteps';
+import CleanStockInput from '../components/CleanStockInput';
+import SimpleAnalysisModal from '../components/SimpleAnalysisModal';
+import DisclaimerBanner from '../components/DisclaimerBanner';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -123,7 +120,10 @@ export default function RefactoredHome() {
 
   const runDiagnosis = async () => {
     if (diagnosisState !== 'initial') return;
-    if (!stockCode || !stockData) return;
+    if (!stockCode || !stockData) {
+      setError('Please enter a valid stock symbol');
+      return;
+    }
 
     trackDiagnosisButtonClick();
 
@@ -186,7 +186,7 @@ export default function RefactoredHome() {
       }
 
       if (!response.ok) {
-        throw new Error('AI診断に失敗しました');
+        throw new Error('Analysis failed. Please try again.');
       }
 
       setDiagnosisState('processing');
@@ -197,106 +197,118 @@ export default function RefactoredHome() {
         const reader = response.body?.getReader();
         const decoder = new TextDecoder();
         let fullAnalysis = '';
-        let firstChunk = true;
 
-        if (!reader) {
-          throw new Error('ストリーム読み取りに失敗しました');
-        }
+        if (reader) {
+          setDiagnosisState('streaming');
 
-        while (true) {
-          const { done, value } = await reader.read();
+          const elapsedTime = Date.now() - startTime;
+          const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
 
-          if (done) {
-            break;
-          }
+          await new Promise(resolve => setTimeout(resolve, remainingTime));
+          setShowLoadingScene(false);
 
-          const text = decoder.decode(value, { stream: true });
-          const lines = text.split('\n').filter(line => line.trim() !== '');
+          try {
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
 
-          for (const line of lines) {
-            if (line.startsWith('data: ')) {
-              const data = line.slice(6);
+              const chunk = decoder.decode(value, { stream: true });
+              const lines = chunk.split('\n');
 
-              try {
-                const parsed = JSON.parse(data);
+              for (const line of lines) {
+                if (line.startsWith('data: ')) {
+                  try {
+                    const data = JSON.parse(line.slice(6));
 
-                if (parsed.error) {
-                  throw new Error(parsed.error);
-                }
+                    if (data.done) {
+                      setLoadingProgress(100);
+                      await userTracking.trackDiagnosis({
+                        stockCode: stockCode,
+                        stockName: stockData?.info.name || stockCode,
+                        success: true,
+                        durationMs: Date.now() - diagnosisStartTime
+                      });
+                      setTimeout(() => {
+                        setDiagnosisState('results');
+                      }, 100);
+                      return;
+                    }
 
-                if (parsed.content) {
-                  fullAnalysis += parsed.content;
-
-                  if (firstChunk && fullAnalysis.trim().length > 0) {
-                    setLoadingProgress(100);
-                    const elapsedTime = Date.now() - startTime;
-                    const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
-
-                    setTimeout(() => {
-                      setShowLoadingScene(false);
-                      setDiagnosisState('streaming');
-                    }, remainingTime + 300);
-                    firstChunk = false;
+                    if (data.text) {
+                      fullAnalysis += data.text;
+                      setAnalysisResult(fullAnalysis);
+                    }
+                  } catch (parseError) {
+                    console.error('Parse error:', parseError);
                   }
-
-                  setAnalysisResult(fullAnalysis);
                 }
-
-                if (parsed.done) {
-                  setDiagnosisState('results');
-
-                  const durationMs = Date.now() - diagnosisStartTime;
-                  await userTracking.trackDiagnosisClick({
-                    stockCode: inputValue,
-                    stockName: stockData?.info.name || inputValue,
-                    durationMs: durationMs
-                  });
-                }
-              } catch (parseError) {
-                console.error('Error parsing SSE data:', parseError);
               }
             }
+          } catch (streamError) {
+            console.error('Stream error:', streamError);
+            throw new Error('Stream reading error');
           }
         }
-      } else {
-        const result = await response.json();
 
-        if (!result.analysis || result.analysis.trim() === '') {
-          throw new Error('診断結果が生成されませんでした');
+        if (!fullAnalysis) {
+          throw new Error('No analysis results generated');
         }
 
-        setAnalysisResult(result.analysis);
+        setLoadingProgress(100);
+        await userTracking.trackDiagnosis({
+          stockCode: stockCode,
+          stockName: stockData?.info.name || stockCode,
+          success: true,
+          durationMs: Date.now() - diagnosisStartTime
+        });
+        setDiagnosisState('results');
+      } else {
+        const data = await response.json();
 
         const elapsedTime = Date.now() - startTime;
         const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+        await new Promise(resolve => setTimeout(resolve, remainingTime));
+        setShowLoadingScene(false);
 
-        setTimeout(() => {
-          setShowLoadingScene(false);
+        if (data && data.analysis) {
+          setAnalysisResult(data.analysis);
+          setLoadingProgress(100);
+          await userTracking.trackDiagnosis({
+            stockCode: stockCode,
+            stockName: stockData?.info.name || stockCode,
+            success: true,
+            durationMs: Date.now() - diagnosisStartTime
+          });
           setDiagnosisState('results');
-        }, remainingTime + 300);
-
-        const durationMs = Date.now() - diagnosisStartTime;
-        await userTracking.trackDiagnosisClick({
-          stockCode: inputValue,
-          stockName: stockData?.info.name || inputValue,
-          durationMs: durationMs
-        });
+        } else {
+          throw new Error('No analysis results returned');
+        }
       }
-    } catch (err) {
-      console.error('Diagnosis error:', err);
-      let errorMessage = '診断中にエラーが発生しました';
+    } catch (err: any) {
+      console.error('Analysis error:', err);
+      setLoadingProgress(0);
+
+      await userTracking.trackDiagnosis({
+        stockCode: stockCode,
+        stockName: stockData?.info.name || stockCode,
+        success: false,
+        durationMs: Date.now() - diagnosisStartTime,
+        errorMessage: err.message
+      });
+
+      let errorMessage = 'An error occurred during analysis';
       let errorDetails = '';
 
-      if (err instanceof Error) {
-        if (err.name === 'AbortError') {
-          errorMessage = 'リクエストがタイムアウトしました';
-          errorDetails = '接続に時間がかかりすぎています。もう一度お試しください。';
-        } else {
-          errorMessage = err.message;
-
+      if (err.name === 'AbortError') {
+        errorMessage = 'Request timeout. Please try again.';
+      } else if (err.message) {
+        errorDetails = err.message;
+      } else {
+        if (err instanceof Error) {
           try {
             const errorResponse = JSON.parse(err.message);
-            if (errorResponse.details) {
+            if (errorResponse.error) {
+              errorMessage = errorResponse.error;
               errorDetails = errorResponse.details;
             }
           } catch {
@@ -305,7 +317,7 @@ export default function RefactoredHome() {
         }
       }
 
-      setError(`${errorMessage}${errorDetails ? `\n詳細: ${errorDetails}` : ''}`);
+      setError(`${errorMessage}${errorDetails ? `\nDetails: ${errorDetails}` : ''}`);
 
       const elapsedTime = Date.now() - startTime;
       const remainingTime = Math.max(0, 2000 - elapsedTime);
@@ -330,7 +342,7 @@ export default function RefactoredHome() {
 
       if (!response.ok) {
         console.error('Failed to get LINE redirect link');
-        alert('LINEリンクの取得に失敗しました。しばらくしてからもう一度お試しください。');
+        alert('Failed to retrieve LINE link. Please try again later.');
         return;
       }
 
@@ -338,16 +350,14 @@ export default function RefactoredHome() {
 
       if (!data.success || !data.link) {
         console.error('No active LINE redirect links available');
-        alert('現在利用可能なLINEリンクがありません。');
+        alert('No LINE links available at this time.');
         return;
       }
 
       const lineUrl = data.link.redirect_url;
 
-      // Track conversion using sendBeacon for reliable tracking
       trackConversion();
 
-      // Use sendBeacon for non-blocking tracking
       if (navigator.sendBeacon) {
         const trackingData = JSON.stringify({
           sessionId: sessionStorage.getItem('sessionId') || '',
@@ -359,19 +369,16 @@ export default function RefactoredHome() {
         });
         navigator.sendBeacon('/api/tracking/event', trackingData);
       } else {
-        // Fallback for browsers that don't support sendBeacon
         await userTracking.trackConversion({
           gclid: urlParams.gclid
         });
       }
 
       console.log('LINE conversion tracked successfully');
-
-      // Immediate redirect without delay - Google Ads compliant
       window.location.href = lineUrl;
     } catch (error) {
       console.error('LINE conversion error:', error);
-      alert('操作に失敗しました。しばらくしてからもう一度お試しください。');
+      alert('Operation failed. Please try again later.');
     }
   };
 
@@ -408,7 +415,7 @@ export default function RefactoredHome() {
       console.log('Report download tracked successfully');
     } catch (error) {
       console.error('Report download error:', error);
-      alert('レポートのダウンロードに失敗しました。もう一度お試しください。');
+      alert('Failed to download report. Please try again.');
     }
   };
 
@@ -430,88 +437,42 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="min-h-screen relative flex flex-col">
-      <FinancialBackground />
-      <BrandHeader />
+    <div className="min-h-screen bg-white">
+      <HeroSection />
 
-      <div className="relative z-10 flex-1 flex items-center justify-center">
-        <div className="w-full max-w-7xl mx-auto">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center px-6 py-12 md:py-0">
-            <WelcomeSection />
+      <CleanStockInput
+        value={inputValue}
+        onChange={setInputValue}
+        onSubmit={runDiagnosis}
+        loading={loading || diagnosisState === 'connecting'}
+        error={error}
+      />
 
-            <div className="w-full flex items-center justify-center">
-              <LoginCard>
-              <div className="mb-6 mt-16 text-left">
-                <h3 className="text-2xl font-bold mb-2" style={{ color: '#0b76bd' }}>
-                  株価診断
-                </h3>
-                <p className="text-base" style={{ color: '#0b76bd' }}>
-                  証券コードを入力してください
-                </p>
-              </div>
-
-              <MinimalStockInput
-                value={inputValue}
-                onChange={setInputValue}
-                onStockSelect={handleStockSelect}
-              />
-
-              {loading && (
-                <div className="text-center py-6 animate-fadeIn">
-                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-fintech-border border-t-fintech-blue"></div>
-                  <p className="mt-2 text-fintech-text-secondary text-sm">読み込み中...</p>
-                </div>
-              )}
-
-              {error && diagnosisState !== 'error' && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-center animate-fadeIn mt-4">
-                  <p className="text-red-600 text-sm font-semibold">{error}</p>
-                </div>
-              )}
-
-              {!loading && diagnosisState === 'initial' && (
-                <>
-                  <AIAuthLink onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
-                  <RadarAnimation />
-                </>
-              )}
-
-              {diagnosisState === 'error' && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center animate-fadeIn mt-4">
-                  <h3 className="text-lg font-bold text-red-600 mb-2">診断エラー</h3>
-                  <p className="text-red-600 text-sm mb-4 whitespace-pre-line">{error}</p>
-                  <button
-                    onClick={() => {
-                      setDiagnosisState('initial');
-                      setError(null);
-                    }}
-                    className="px-6 py-3 bg-fintech-blue text-white font-semibold rounded-lg transition-all shadow-md hover:bg-fintech-blue-dark"
-                  >
-                    もう一度試す
-                  </button>
-                </div>
-              )}
-
-              {diagnosisState === 'connecting' && (
-                <div className="text-center py-6 animate-fadeIn mt-4">
-                  <RadarAnimation />
-                </div>
-              )}
-
-              {diagnosisState === 'initial' && <BottomLinks onCreateAccount={handleLineConversion} />}
-            </LoginCard>
-          </div>
-          </div>
+      {stockData && diagnosisState === 'initial' && !error && (
+        <div className="max-w-2xl mx-auto px-6 py-4 text-center">
+          <p className="text-gray-700 mb-4">
+            Stock found: <strong>{stockData.info.name}</strong> ({stockCode})
+          </p>
+          <button
+            onClick={runDiagnosis}
+            disabled={loading}
+            className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+          >
+            Start Analysis
+          </button>
         </div>
-      </div>
+      )}
 
-      <DiagnosisModal
+      <FeatureGrid />
+      <ProcessSteps />
+      <DisclaimerBanner />
+
+      <SimpleAnalysisModal
         isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}
         onClose={closeModal}
         analysis={analysisResult}
-        stockCode={inputValue}
-        stockName={stockData?.info.name || inputValue}
-        onLineConversion={handleLineConversion}
+        stockCode={stockCode}
+        stockName={stockData?.info.name || stockCode}
         onReportDownload={handleReportDownload}
         isStreaming={diagnosisState === 'streaming'}
         isConnecting={diagnosisState === 'connecting'}
