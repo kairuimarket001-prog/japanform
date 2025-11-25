@@ -49,12 +49,16 @@ export default function DiagnosisLoadingOverlay({
 
   if (!isVisible && !isExiting) return null;
 
+  const brandColor = '#0b76bd';
+  const lightBrand = '#b3d9f2';
+  const bgLight = '#f0f8ff';
+
   return (
     <div
-      className={`fixed inset-0 z-[9997] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[9997] flex items-center justify-center p-4 backdrop-blur-md transition-opacity duration-500 ${
         isExiting ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
-      style={{ touchAction: 'none' }}
+      style={{ touchAction: 'none', backgroundColor: 'rgba(11, 118, 189, 0.1)' }}
     >
       <div className={`w-[95%] max-w-2xl transition-transform duration-500 ${
         isExiting ? 'scale-95' : 'scale-100'
@@ -62,19 +66,19 @@ export default function DiagnosisLoadingOverlay({
         <div
           className="border-2 rounded-2xl shadow-2xl p-8"
           style={{
-            background: 'linear-gradient(to bottom right, #3A3452, #4A4563, #3A3452)',
-            borderColor: 'rgba(139, 131, 255, 0.5)'
+            background: 'linear-gradient(to bottom right, #ffffff, #f0f8ff)',
+            borderColor: lightBrand
           }}
         >
           <div className="flex justify-center mb-6">
             <div className="relative w-24 h-24">
               <div
                 className="absolute inset-0 rounded-full animate-pulse opacity-50"
-                style={{ background: 'linear-gradient(to bottom right, #8B83FF, #6B63FF)' }}
+                style={{ backgroundColor: lightBrand }}
               ></div>
               <div
                 className="absolute inset-2 rounded-full flex items-center justify-center"
-                style={{ background: 'linear-gradient(to bottom right, #A78BFA, #8B83FF)' }}
+                style={{ backgroundColor: brandColor }}
               >
                 <span className="text-4xl">🤖</span>
               </div>
@@ -82,37 +86,37 @@ export default function DiagnosisLoadingOverlay({
           </div>
 
           <div className="mb-6">
-            <h3 className="text-xl font-bold text-white mb-2 text-center">AI分析を実行中</h3>
-            <p className="text-sm text-center" style={{ color: '#C4B5FD' }}>市場データを深度分析しています...</p>
+            <h3 className="text-xl font-bold mb-2 text-center" style={{ color: brandColor }}>AI分析を実行中</h3>
+            <p className="text-sm text-center" style={{ color: brandColor }}>市場データを深度分析しています...</p>
           </div>
 
-          <div className="relative w-full h-3 bg-gray-800/50 rounded-full overflow-hidden mb-3 border" style={{ borderColor: 'rgba(139, 131, 255, 0.3)' }}>
+          <div className="relative w-full h-3 rounded-full overflow-hidden mb-3 border" style={{ backgroundColor: bgLight, borderColor: lightBrand }}>
             <div
-              className="absolute top-0 left-0 h-full transition-all duration-300 ease-out shadow-lg"
+              className="absolute top-0 left-0 h-full transition-all duration-300 ease-out"
               style={{
                 width: `${Math.min(progress, 100)}%`,
-                background: 'linear-gradient(to right, #8B83FF, #6B63FF)',
-                boxShadow: '0 0 20px rgba(139, 131, 255, 0.5)'
+                backgroundColor: brandColor,
+                boxShadow: `0 0 20px ${brandColor}40`
               }}
             />
           </div>
 
           <div className="mb-6 text-center">
-            <span className="text-sm font-semibold" style={{ color: '#A78BFA' }}>
+            <span className="text-sm font-semibold" style={{ color: brandColor }}>
               {Math.floor(Math.min(progress, 100))}%
             </span>
           </div>
 
-          <div className="bg-gray-900/40 border-2 rounded-lg p-6 backdrop-blur-sm" style={{ borderColor: 'rgba(139, 131, 255, 0.3)' }}>
+          <div className="border-2 rounded-lg p-6 backdrop-blur-sm" style={{ backgroundColor: bgLight, borderColor: lightBrand }}>
             <div className="space-y-3 text-sm">
-              <p className="text-white font-semibold text-center text-base">
+              <p className="font-semibold text-center text-base" style={{ color: brandColor }}>
                 📊 AIが複数の指標を総合的に評価中
               </p>
-              <p className="text-center" style={{ color: '#C4B5FD' }}>
+              <p className="text-center" style={{ color: brandColor }}>
                 しばらくお待ちください
               </p>
-              <div className="pt-3 border-t border-modern-purple-500/30">
-                <p className="text-xs text-gray-300 text-center leading-relaxed">
+              <div className="pt-3 border-t" style={{ borderColor: lightBrand }}>
+                <p className="text-xs text-center leading-relaxed" style={{ color: brandColor }}>
                   すべてのデータは公開されている市場情報を使用しており、公開市場データに基づいて分析を行っています。本分析は最新のAI技術により、財務指標、業界動向、市場トレンドを総合的に評価しています。
                 </p>
               </div>

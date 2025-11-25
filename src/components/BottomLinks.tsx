@@ -6,8 +6,8 @@ export default function BottomLinks({ onCreateAccount }: BottomLinksProps) {
   const brandColor = '#0b76bd';
 
   return (
-    <div className="mt-8 space-y-3 text-center">
-      <div>
+    <div className="mt-8 space-y-4">
+      <div className="text-center">
         <a
           href="/contact"
           className="text-sm transition-colors duration-200"
@@ -18,24 +18,14 @@ export default function BottomLinks({ onCreateAccount }: BottomLinksProps) {
           認証に問題があります
         </a>
       </div>
-      <div>
-        <button
-          onClick={onCreateAccount}
-          className="text-sm font-semibold transition-colors duration-200 flex items-center gap-1 justify-center mx-auto group"
-          style={{ color: brandColor }}
-          onMouseEnter={(e) => e.currentTarget.style.color = '#095a94'}
-          onMouseLeave={(e) => e.currentTarget.style.color = brandColor}
-        >
-          <span>オンラインでアカウントを作成</span>
-          <svg
-            className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+
+      <div className="rounded-lg p-4 text-left border-2" style={{ backgroundColor: '#f0f8ff', borderColor: '#b3d9f2' }}>
+        <p className="text-xs leading-relaxed" style={{ color: brandColor }}>
+          <strong className="font-bold">⚠️ 重要なお知らせ</strong><br />
+          当サービスは情報提供のみを目的としており、投資助言や投資勧誘を行うものではありません。
+          <strong className="font-semibold">投資判断は必ずご自身の責任で行ってください。</strong>
+          株式投資には価格変動リスクがあり、投資元本を割り込む可能性があります。
+        </p>
       </div>
     </div>
   );
