@@ -177,7 +177,7 @@ export default function IllustrationCarousel() {
                       background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
                     }}
                   >
-                    <h2 className="text-2xl font-bold text-white leading-tight">
+                    <h2 className="text-xl font-bold text-white leading-tight whitespace-nowrap">
                       {currentItem.titleLine2}
                     </h2>
                   </div>
