@@ -23,7 +23,8 @@
   }
 
   body {
-    @apply bg-peaceful-sky text-gray-800 min-h-screen;
+    @apply text-gray-800 min-h-screen;
+    background: linear-gradient(to bottom, #ffffff, #f0f9ff, #e0f2fe);
     overflow-x: hidden;
     font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
     -webkit-font-smoothing: antialiased;
