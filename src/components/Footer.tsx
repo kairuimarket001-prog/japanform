@@ -70,8 +70,8 @@ export default function Footer() {
 
         {/* Important Notice - Mobile */}
         <div className="md:hidden bg-ocean-500/10 backdrop-blur-md border border-ocean-400/50 rounded-xl p-4 text-center mb-6">
-          <p className="text-sm text-ocean-300 font-semibold mb-1">⚠️ 重要なお知らせ</p>
-          <p className="text-xs text-ocean-100 leading-relaxed">
+          <p className="text-sm text-white font-semibold mb-1">⚠️ 重要なお知らせ</p>
+          <p className="text-xs text-white/90 leading-relaxed">
             当サービスは情報提供のみを目的としており、投資助言や投資勧誘を行うものではありません。投資判断は必ずご自身の責任で行ってください。
           </p>
         </div>
