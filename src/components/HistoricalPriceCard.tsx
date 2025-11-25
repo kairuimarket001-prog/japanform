@@ -4,11 +4,9 @@ import { StockPrice } from '../types/stock';
 
 interface HistoricalPriceCardProps {
   price: StockPrice;
-  isFocused?: boolean;
-  position?: number;
 }
 
-function HistoricalPriceCard({ price, isFocused = false }: HistoricalPriceCardProps) {
+function HistoricalPriceCard({ price }: HistoricalPriceCardProps) {
   const isPlaceholder = price.date === '---';
   const changeValue = isPlaceholder ? 0 : parseFloat(price.change.replace(/,/g, ''));
   const isPositive = changeValue > 0;
@@ -31,17 +29,10 @@ function HistoricalPriceCard({ price, isFocused = false }: HistoricalPriceCardPr
   const TrendIcon = isPlaceholder ? Minus : (isPositive ? TrendingUp : isNegative ? TrendingDown : Minus);
 
   return (
-    <div className={`
-      bg-white rounded-2xl transition-all duration-300 flex items-center
-      h-[90px] p-5
-      ${isFocused ? 'shadow-xl' : 'shadow-md'}
-    `}>
+    <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-5 min-h-[90px] flex items-center">
       <div className="flex items-center justify-between w-full gap-4">
         <div className="flex-1 min-w-0">
-          <div className={`
-            text-base font-semibold whitespace-nowrap
-            ${isPlaceholder ? 'text-gray-400' : 'text-gray-900'}
-          `}>
+          <div className={`text-base font-semibold whitespace-nowrap ${isPlaceholder ? 'text-gray-400' : 'text-gray-900'}`}>
             {price.date}
           </div>
           <div className="text-xs text-gray-500 mt-0.5">
@@ -50,10 +41,7 @@ function HistoricalPriceCard({ price, isFocused = false }: HistoricalPriceCardPr
         </div>
 
         <div className="flex-1 text-center">
-          <div className={`
-            text-2xl font-bold
-            ${isPlaceholder ? 'text-gray-400' : 'text-gray-900'}
-          `}>
+          <div className={`text-2xl font-bold ${isPlaceholder ? 'text-gray-400' : 'text-gray-900'}`}>
             {price.close}
           </div>
           <div className="text-xs text-gray-500">
