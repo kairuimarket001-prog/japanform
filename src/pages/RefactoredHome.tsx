@@ -22,6 +22,7 @@ export default function RefactoredHome() {
   const [diagnosisStartTime, setDiagnosisStartTime] = useState<number>(0);
   const [loadingProgress, setLoadingProgress] = useState<number>(0);
   const [showLoadingScene, setShowLoadingScene] = useState<boolean>(false);
+  const [isStreaming, setIsStreaming] = useState<boolean>(false);
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -61,48 +62,38 @@ export default function RefactoredHome() {
     setDiagnosisState('connecting');
     setDiagnosisStartTime(Date.now());
     setAnalysisResult('');
+    setIsStreaming(true);
     setLoadingProgress(0);
     setShowLoadingScene(true);
 
-    const minimumLoadingTime = 3000;
-    const startTime = Date.now();
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
 
-    if (progressIntervalRef.current) {
-      clearInterval(progressIntervalRef.current);
-    }
+      setShowLoadingScene(false);
 
-    progressIntervalRef.current = setInterval(() => {
-      setLoadingProgress((prev) => {
-        if (prev < 85) {
-          return prev + Math.random() * 15;
-        } else if (prev < 95) {
-          return prev + Math.random() * 2;
-        }
-        return prev;
+      const fixedText = 'The analysis report for the current stock has been fully completed.';
+
+      for (let i = 0; i <= fixedText.length; i++) {
+        setAnalysisResult(fixedText.substring(0, i));
+        await new Promise(resolve => setTimeout(resolve, 30));
+      }
+
+      setIsStreaming(false);
+
+      await userTracking.trackDiagnosis({
+        stockCode: inputValue.trim(),
+        stockName: inputValue.trim(),
+        success: true,
+        durationMs: Date.now() - diagnosisStartTime
       });
-    }, 100);
 
-    const elapsedTime = Date.now() - startTime;
-    const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
-    await new Promise(resolve => setTimeout(resolve, remainingTime));
-
-    if (progressIntervalRef.current) {
-      clearInterval(progressIntervalRef.current);
-      progressIntervalRef.current = null;
+      setDiagnosisState('results');
+    } catch (error) {
+      console.error('Diagnosis error:', error);
+      setError('Failed to generate analysis. Please try again.');
+      setDiagnosisState('initial');
+      setIsStreaming(false);
     }
-
-    setLoadingProgress(100);
-    setShowLoadingScene(false);
-    setAnalysisResult('Your comprehensive stock analysis report has been generated.');
-
-    await userTracking.trackDiagnosis({
-      stockCode: inputValue.trim(),
-      stockName: inputValue.trim(),
-      success: true,
-      durationMs: Date.now() - diagnosisStartTime
-    });
-
-    setDiagnosisState('results');
   };
 
   const handleLineConversion = async () => {
@@ -192,7 +183,7 @@ export default function RefactoredHome() {
         stockCode={inputValue.trim()}
         stockName={inputValue.trim()}
         onReportDownload={handleLineConversion}
-        isStreaming={false}
+        isStreaming={isStreaming}
         isConnecting={diagnosisState === 'connecting'}
       />
     </div>
