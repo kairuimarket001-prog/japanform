@@ -36,26 +36,23 @@ export default function SpecifiedCommercialTransactionAct() {
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">会社名</dt>
-                      <dd className="sm:col-span-2 text-gray-700">株式会社デジタルアド</dd>
+                      <dd className="sm:col-span-2 text-gray-700">株式会社AKYI</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">会社名（英語）</dt>
-                      <dd className="sm:col-span-2 text-gray-700">DigitalAd Co., Ltd.</dd>
+                      <dd className="sm:col-span-2 text-gray-700">Kabushikigaisha AKYI</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">所在地</dt>
                       <dd className="sm:col-span-2 text-gray-700">
-                        〒163-0534<br />
-                        東京都新宿区西新宿1-6-1 新宿野村ビル21階
+                        〒100-0064<br />
+                        東京都千代田区大手町5-7-1<br />
+                        5-7-1 Otemachi, Chiyoda-ku, Tokyo
                       </dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-gray-900">設立</dt>
-                      <dd className="sm:col-span-2 text-gray-700">2014年5月</dd>
-                    </div>
-                    <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-gray-900">業種</dt>
-                      <dd className="sm:col-span-2 text-gray-700">デジタル広告／データ分析／広告運用最適化</dd>
+                      <dt className="font-semibold text-gray-900">電話番号</dt>
+                      <dd className="sm:col-span-2 text-gray-700">+81 3-5555-1272</dd>
                     </div>
                   </dl>
                 </div>

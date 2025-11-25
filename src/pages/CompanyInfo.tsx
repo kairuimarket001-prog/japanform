@@ -24,8 +24,8 @@ export default function CompanyInfo() {
           <div className="prose max-w-none">
             <section className="mb-8">
               <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-6 border-l-4 border-blue-500">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">株式会社デジタルアド</h2>
-                <p className="text-lg text-gray-700 mb-2">DigitalAd Co., Ltd.</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">株式会社AKYI</h2>
+                <p className="text-lg text-gray-700 mb-2">Kabushikigaisha AKYI</p>
               </div>
             </section>
 
@@ -37,9 +37,9 @@ export default function CompanyInfo() {
                     <div>
                       <h3 className="font-bold text-gray-900 mb-2">所在地</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        〒163-0534<br />
-                        東京都新宿区西新宿1-6-1<br />
-                        新宿野村ビル21階
+                        〒100-0064<br />
+                        東京都千代田区大手町5-7-1<br />
+                        5-7-1 Otemachi, Chiyoda-ku, Tokyo
                       </p>
                     </div>
                   </div>

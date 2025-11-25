@@ -163,19 +163,19 @@ export default function Contact() {
                 運営会社情報
               </h3>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>会社名:</strong> 株式会社デジタルアド（DigitalAd Co., Ltd.）
+                <strong>会社名:</strong> 株式会社AKYI（Kabushikigaisha AKYI）
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>所在地:</strong> 〒163-0534 東京都新宿区西新宿1-6-1 新宿野村ビル21階
+                <strong>所在地:</strong> 〒100-0064 東京都千代田区大手町5-7-1
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>設立:</strong> 2014年5月
+                <strong>Address:</strong> 5-7-1 Otemachi, Chiyoda-ku, Tokyo
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>業種:</strong> デジタル広告／データ分析／広告運用最適化
+                <strong>電話番号:</strong> +81 3-5555-1272
               </p>
               <p className="text-sm text-gray-700 mb-2">
-                <strong>メールアドレス:</strong> support@ostosk.jp
+                <strong>メールアドレス:</strong> contact@financidsdgroup.jp
               </p>
               <p className="text-sm text-gray-700">
                 <strong>受付時間:</strong> 24時間受付（返信は営業日内）

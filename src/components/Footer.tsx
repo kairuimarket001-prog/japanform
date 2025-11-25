@@ -75,10 +75,10 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-1 drop-shadow-lg" style={{ color: brandColor }}>
                   <Mail className="w-3 h-3" />
-                  <span>support@ostosk.jp</span>
+                  <span>contact@financidsdgroup.jp</span>
                 </li>
                 <li className="drop-shadow-lg text-xs" style={{ color: brandColor }}>
-                  受付時間: 24時間受付（返信は営業日内）
+                  +81 3-5555-1272
                 </li>
               </ul>
             </div>
@@ -87,7 +87,7 @@ export default function Footer() {
           {/* Copyright Section */}
           <div className="border-t pt-4 text-center" style={{ borderColor: brandColor }}>
             <p className="text-xs sm:text-sm drop-shadow-lg mb-2 font-medium" style={{ color: brandColor }}>
-              &copy; {currentYear} 株式会社デジタルアド (DigitalAd Co., Ltd.). All rights reserved.
+              &copy; {currentYear} 株式会社AKYI (Kabushikigaisha AKYI). All rights reserved.
             </p>
             <p className="text-[10px] sm:text-xs drop-shadow-lg leading-relaxed max-w-3xl mx-auto mb-4" style={{ color: brandColor }}>
               当サイトで提供される情報は投資勧誘を目的としたものではありません。
@@ -97,8 +97,9 @@ export default function Footer() {
 
             {/* Service Information */}
             <div className="text-[10px] sm:text-xs drop-shadow-lg space-y-1" style={{ color: brandColor }}>
-              <p>株式会社デジタルアド（DigitalAd Co., Ltd.）</p>
-              <p>〒163-0534 東京都新宿区西新宿1-6-1 新宿野村ビル21階</p>
+              <p>株式会社AKYI（Kabushikigaisha AKYI）</p>
+              <p>〒100-0064 東京都千代田区大手町5-7-1</p>
+              <p>5-7-1 Otemachi, Chiyoda-ku, Tokyo</p>
             </div>
           </div>
         </div>

@@ -62,8 +62,8 @@ export default function RadarAnimation() {
   const lightColor = '#b3d9f2';
 
   return (
-    <div className="relative w-full max-w-sm mx-auto my-6">
-      <div className="relative w-full aspect-square rounded-lg p-6" style={{ backgroundColor: '#f0f8ff' }}>
+    <div className="relative w-full max-w-xs mx-auto my-6">
+      <div className="relative w-full aspect-square rounded-lg p-4" style={{ backgroundColor: '#f0f8ff' }}>
         <svg
           viewBox="0 0 200 200"
           className="absolute inset-0 w-full h-full"
