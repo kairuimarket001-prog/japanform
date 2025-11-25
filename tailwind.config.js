@@ -77,6 +77,12 @@ export default {
         'modern-lg': '16px',
         'modern-md': '12px',
       },
+      transitionDuration: {
+        '600': '600ms',
+      },
+      backdropBlur: {
+        'none': '0',
+      },
     },
   },
   plugins: [],
