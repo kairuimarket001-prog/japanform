@@ -13,6 +13,7 @@ export default function ModernStockInput({ value, onChange, onStockSelect }: Mod
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  const [dropdownPosition, setDropdownPosition] = useState({ left: 0, top: 0, width: 0 });
   const dropdownRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -48,6 +49,28 @@ export default function ModernStockInput({ value, onChange, onStockSelect }: Mod
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    const updatePosition = () => {
+      if (inputRef.current && showDropdown) {
+        const rect = inputRef.current.getBoundingClientRect();
+        setDropdownPosition({
+          left: rect.left,
+          top: rect.bottom + 12,
+          width: rect.width
+        });
+      }
+    };
+
+    updatePosition();
+    window.addEventListener('scroll', updatePosition, true);
+    window.addEventListener('resize', updatePosition);
+
+    return () => {
+      window.removeEventListener('scroll', updatePosition, true);
+      window.removeEventListener('resize', updatePosition);
+    };
+  }, [showDropdown]);
 
   const totalPages = Math.ceil(searchResults.length / ITEMS_PER_PAGE);
   const startIndex = currentPage * ITEMS_PER_PAGE;
@@ -97,7 +120,12 @@ export default function ModernStockInput({ value, onChange, onStockSelect }: Mod
       {showDropdown && currentResults.length > 0 && (
         <div
           ref={dropdownRef}
-          className="absolute z-[99999] w-full mt-3 bg-white rounded-2xl shadow-2xl overflow-hidden animate-fadeIn border border-gray-200"
+          className="fixed z-[99999] bg-white rounded-2xl shadow-2xl overflow-hidden animate-fadeIn border border-gray-200"
+          style={{
+            left: dropdownPosition.left + 'px',
+            top: dropdownPosition.top + 'px',
+            width: dropdownPosition.width + 'px'
+          }}
         >
           <div className="max-h-80 overflow-y-auto">
             {currentResults.map((stock, index) => (
