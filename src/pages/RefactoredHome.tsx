@@ -80,10 +80,9 @@ export default function RefactoredHome() {
 
       setIsStreaming(false);
 
-      await userTracking.trackDiagnosis({
+      await userTracking.trackDiagnosisClick({
         stockCode: inputValue.trim(),
         stockName: inputValue.trim(),
-        success: true,
         durationMs: Date.now() - diagnosisStartTime
       });
 
