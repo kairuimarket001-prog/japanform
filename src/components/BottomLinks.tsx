@@ -3,12 +3,17 @@ interface BottomLinksProps {
 }
 
 export default function BottomLinks({ onCreateAccount }: BottomLinksProps) {
+  const brandColor = '#0b76bd';
+
   return (
     <div className="mt-8 space-y-3 text-center">
       <div>
         <a
           href="/contact"
-          className="text-sm text-blue-500 hover:text-blue-700 transition-colors duration-200"
+          className="text-sm transition-colors duration-200"
+          style={{ color: brandColor }}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#095a94'}
+          onMouseLeave={(e) => e.currentTarget.style.color = brandColor}
         >
           認証に問題があります
         </a>
@@ -16,7 +21,10 @@ export default function BottomLinks({ onCreateAccount }: BottomLinksProps) {
       <div>
         <button
           onClick={onCreateAccount}
-          className="text-sm text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200 flex items-center gap-1 justify-center mx-auto group"
+          className="text-sm font-semibold transition-colors duration-200 flex items-center gap-1 justify-center mx-auto group"
+          style={{ color: brandColor }}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#095a94'}
+          onMouseLeave={(e) => e.currentTarget.style.color = brandColor}
         >
           <span>オンラインでアカウントを作成</span>
           <svg

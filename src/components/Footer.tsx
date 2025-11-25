@@ -3,6 +3,7 @@ import { Shield, Scale, FileText, Mail, ExternalLink } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const brandColor = '#0b76bd';
 
   return (
     <footer className="relative z-10 border-t-2 border-white/20 mt-12">
@@ -89,7 +90,8 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/company"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
+                    className="drop-shadow-lg hover:underline flex items-center gap-1"
+                    style={{ color: brandColor }}
                   >
                     会社概要 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -97,7 +99,8 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/terms"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
+                    className="drop-shadow-lg hover:underline flex items-center gap-1"
+                    style={{ color: brandColor }}
                   >
                     利用規約 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -105,7 +108,8 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/privacy"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
+                    className="drop-shadow-lg hover:underline flex items-center gap-1"
+                    style={{ color: brandColor }}
                   >
                     プライバシーポリシー <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -113,7 +117,8 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/specified-commercial-transaction-act"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
+                    className="drop-shadow-lg hover:underline flex items-center gap-1"
+                    style={{ color: brandColor }}
                   >
                     特定商取引法表記 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -131,7 +136,8 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/contact"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
+                    className="drop-shadow-lg hover:underline flex items-center gap-1"
+                    style={{ color: brandColor }}
                   >
                     お問い合わせフォーム <ExternalLink className="w-3 h-3" />
                   </Link>

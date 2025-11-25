@@ -9,7 +9,12 @@ export default function AIAuthLink({ onClick, disabled }: AIAuthLinkProps) {
       <button
         onClick={onClick}
         disabled={disabled}
-        className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+        className="w-full px-6 py-3 text-white font-semibold text-base rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+        style={{
+          backgroundColor: '#0b76bd',
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#095a94'}
+        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0b76bd'}
       >
         #AI認証機
       </button>

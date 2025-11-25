@@ -106,7 +106,7 @@ export default function MinimalStockInput({ value, onChange, onStockSelect }: Mi
     <div className="relative w-full">
       <div className="relative w-full">
         <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10">
-          <StockIconSVG className="w-5 h-5 text-blue-600" />
+          <StockIconSVG className="w-5 h-5" style={{ color: '#0b76bd' }} />
         </div>
         <input
           ref={inputRef}
@@ -115,7 +115,18 @@ export default function MinimalStockInput({ value, onChange, onStockSelect }: Mi
           onChange={(e) => onChange(e.target.value)}
           onFocus={handleInputFocus}
           placeholder="証券コードまたは銘柄名を入力"
-          className="w-full pl-12 pr-4 py-3 text-base text-blue-600 bg-white border-2 border-blue-200 rounded-lg focus:border-blue-500 focus:outline-none placeholder-blue-300 transition-colors duration-200"
+          className="w-full pl-12 pr-4 py-3 text-base bg-white border-2 rounded-lg focus:outline-none transition-colors duration-200"
+          style={{
+            color: '#0b76bd',
+            borderColor: '#b3d9f2',
+          }}
+          onFocus={(e) => {
+            handleInputFocus(e);
+            e.target.style.borderColor = '#0b76bd';
+          }}
+          onBlur={(e) => {
+            e.target.style.borderColor = '#b3d9f2';
+          }}
           disabled={isLoading}
         />
       </div>
