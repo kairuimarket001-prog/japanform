@@ -16,7 +16,7 @@ export default function AIAuthLink({ onClick, disabled }: AIAuthLinkProps) {
         onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#095a94'}
         onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0b76bd'}
       >
-        #AI認証機
+        AI分析レポートを取得
       </button>
     </div>
   );

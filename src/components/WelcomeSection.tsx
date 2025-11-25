@@ -5,10 +5,10 @@ export default function WelcomeSection() {
     <div className="hidden md:flex flex-col justify-center items-start px-12 lg:px-20 h-full">
       <div className="max-w-xl">
         <h2 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight" style={{ color: brandColor }}>
-          AI株価診断へようこそ
+          AI株価情報分析へようこそ
         </h2>
         <p className="text-base lg:text-lg leading-relaxed mb-8" style={{ color: brandColor }}>
-          プロフェッショナルなAI分析で、あなたの投資判断をサポートします。証券コードを入力して、詳細な銘柄分析レポートを今すぐ取得。
+          AI技術を活用した栫式情報分析で、投資判断の参考情報を提供します。証券コードを入力して、詳細な銘柄分析レポートを今すぐ取得。
         </p>
 
         <div className="flex items-center gap-4 mt-12">
@@ -24,7 +24,7 @@ export default function WelcomeSection() {
             </div>
           </div>
           <p className="text-sm" style={{ color: brandColor }}>
-            信頼される分析ツール
+            情報提供サービス
           </p>
         </div>
       </div>

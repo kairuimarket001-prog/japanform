@@ -238,7 +238,7 @@ export default function SpecifiedCommercialTransactionAct() {
                   <Mail className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">メール</p>
-                    <p className="text-blue-600">support@ostosk.jp</p>
+                    <p className="text-blue-600">contact@financidsdgroup.jp</p>
                     <p className="text-sm text-gray-600 mt-1">24時間受付（返信は営業日内）</p>
                   </div>
                 </div>
