@@ -160,7 +160,7 @@ export default function RefactoredHome() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#1a1f3a] to-[#0f1729]">
       <HeroSection />
 
       <CleanStockInput
