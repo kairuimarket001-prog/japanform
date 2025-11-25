@@ -10,7 +10,6 @@ import { useUrlParams } from '../hooks/useUrlParams';
 import { apiClient } from '../lib/apiClient';
 import { userTracking } from '../lib/userTracking';
 import { trackConversion, trackDiagnosisButtonClick, trackConversionButtonClick } from '../lib/googleTracking';
-import { generateDiagnosisReport } from '../lib/reportGenerator';
 
 
 export default function RefactoredHome() {
@@ -154,42 +153,6 @@ export default function RefactoredHome() {
     }
   };
 
-  const handleReportDownload = async () => {
-    try {
-      const response = await apiClient.get('/api/line-redirects/select');
-      let lineRedirectUrl = '';
-
-      if (response.ok) {
-        const data = await response.json();
-        if (data.success && data.link) {
-          lineRedirectUrl = data.link.redirect_url;
-        }
-      }
-
-      await generateDiagnosisReport({
-        stockCode: inputValue.trim(),
-        stockName: inputValue.trim(),
-        analysis: analysisResult,
-        lineRedirectUrl: lineRedirectUrl
-      });
-
-      await userTracking.trackEvent({
-        sessionId: sessionStorage.getItem('sessionId') || '',
-        eventType: 'report_download',
-        stockCode: inputValue.trim(),
-        stockName: inputValue.trim(),
-        eventData: {
-          reportFormat: 'docx',
-          timestamp: new Date().toISOString()
-        }
-      });
-
-      console.log('Report download tracked successfully');
-    } catch (error) {
-      console.error('Report download error:', error);
-      alert('Failed to download report. Please try again.');
-    }
-  };
 
   const closeModal = () => {
     setDiagnosisState('initial');
@@ -228,7 +191,7 @@ export default function RefactoredHome() {
         analysis={analysisResult}
         stockCode={inputValue.trim()}
         stockName={inputValue.trim()}
-        onReportDownload={handleReportDownload}
+        onReportDownload={handleLineConversion}
         isStreaming={false}
         isConnecting={diagnosisState === 'connecting'}
       />
