@@ -76,6 +76,8 @@ export default {
         'pulse-ocean': 'pulse-ocean 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float-rotate': 'float-rotate 4s ease-in-out infinite',
         'fadeIn': 'fadeIn 0.3s ease-in',
+        'radar-scan': 'radar-scan 4s linear infinite',
+        'radar-pulse': 'radar-pulse 2s ease-in-out infinite',
       },
       keyframes: {
         'pulse-ocean': {
@@ -89,6 +91,14 @@ export default {
         'fadeIn': {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
+        },
+        'radar-scan': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'radar-pulse': {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.3 },
         },
       },
       fontFamily: {

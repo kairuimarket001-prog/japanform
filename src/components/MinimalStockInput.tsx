@@ -104,20 +104,22 @@ export default function MinimalStockInput({ value, onChange, onStockSelect }: Mi
 
   return (
     <div className="relative w-full">
-      <div className="relative flex items-center gap-3">
-        <div className="flex-shrink-0">
-          <StockIconSVG className="w-5 h-5 text-fintech-text-secondary" />
+      <div className="relative flex flex-col items-center gap-3">
+        <div className="flex items-center gap-3 w-full justify-center">
+          <div className="flex-shrink-0">
+            <StockIconSVG className="w-5 h-5 text-fintech-text-secondary" />
+          </div>
+          <input
+            ref={inputRef}
+            type="text"
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            onFocus={handleInputFocus}
+            placeholder="証券コードまたは銘柄名を入力"
+            className="flex-1 max-w-sm py-3 text-base text-fintech-text-primary bg-transparent border-0 border-b-2 border-fintech-border-dark focus:border-fintech-border-focus focus:outline-none placeholder-fintech-text-tertiary transition-colors duration-200 text-center"
+            disabled={isLoading}
+          />
         </div>
-        <input
-          ref={inputRef}
-          type="text"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          onFocus={handleInputFocus}
-          placeholder="証券コードまたは銘柄名を入力"
-          className="flex-1 py-3 text-base text-fintech-text-primary bg-transparent border-0 border-b-2 border-fintech-border-dark focus:border-fintech-border-focus focus:outline-none placeholder-fintech-text-tertiary transition-colors duration-200"
-          disabled={isLoading}
-        />
       </div>
 
       {showDropdown && currentResults.length > 0 && (

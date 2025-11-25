@@ -6,6 +6,7 @@ import LoginCard from '../components/LoginCard';
 import MinimalStockInput from '../components/MinimalStockInput';
 import AIAuthLink from '../components/AIAuthLink';
 import BottomLinks from '../components/BottomLinks';
+import RadarAnimation from '../components/RadarAnimation';
 import DiagnosisModal from '../components/DiagnosisModal';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
@@ -439,7 +440,7 @@ export default function RefactoredHome() {
 
           <div className="flex items-center justify-center">
             <LoginCard>
-              <div className="mb-6">
+              <div className="mb-6 text-center">
                 <h3 className="text-xl font-bold text-fintech-text-primary mb-2">
                   株価診断
                 </h3>
@@ -468,7 +469,10 @@ export default function RefactoredHome() {
               )}
 
               {!loading && diagnosisState === 'initial' && (
-                <AIAuthLink onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
+                <>
+                  <AIAuthLink onClick={runDiagnosis} disabled={!inputValue || !stockCode} />
+                  <RadarAnimation />
+                </>
               )}
 
               {diagnosisState === 'error' && (
@@ -489,12 +493,11 @@ export default function RefactoredHome() {
 
               {diagnosisState === 'connecting' && (
                 <div className="text-center py-6 animate-fadeIn mt-4">
-                  <div className="inline-block animate-spin rounded-full h-10 w-10 border-4 border-fintech-border border-t-fintech-blue mb-3"></div>
-                  <p className="text-fintech-text-secondary text-sm font-medium">AI分析中...</p>
+                  <RadarAnimation />
                 </div>
               )}
 
-              <BottomLinks onCreateAccount={handleLineConversion} />
+              {diagnosisState === 'initial' && <BottomLinks onCreateAccount={handleLineConversion} />}
             </LoginCard>
           </div>
         </div>
