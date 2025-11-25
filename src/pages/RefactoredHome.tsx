@@ -336,21 +336,6 @@ export default function RefactoredHome() {
 
   const handleLineConversion = async () => {
     try {
-      // Show confirmation dialog for transparency - Google Ads compliant
-      const userConfirmed = window.confirm(
-        '【外部サイトへの移動】\n\n' +
-        'これからLINE公式アプリまたはLINE公式サイト(第三者サービス)に移動します。\n\n' +
-        'LINEは当サービスとは独立した別のサービスです。\n\n' +
-        'LINE公式アカウントを友だち追加すると、毎日最新の株式分析レポートを受け取ることができます。\n\n' +
-        '※ 当サービスは完全無料です。LINEへの移動後も追加料金は一切かかりません。\n\n' +
-        'LINEアプリに移動しますか？'
-      );
-
-      if (!userConfirmed) {
-        console.log('User cancelled LINE redirect');
-        return;
-      }
-
       trackConversionButtonClick();
 
       const response = await apiClient.get('/api/line-redirects/select');
