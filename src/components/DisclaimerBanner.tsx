@@ -16,6 +16,11 @@ export default function DisclaimerBanner() {
                 is for reference purposes only and should not be considered as financial or investment advice.
               </p>
               <p>
+                <strong>Summary Analysis Only:</strong> This tool provides a basic analysis summary. For comprehensive
+                technical assessment, detailed risk analysis, and personalized insights, additional consultation is available
+                through our contact service.
+              </p>
+              <p>
                 AI-generated analysis may contain errors or inaccuracies. Past performance does not guarantee
                 future results. Always conduct your own research and consult with qualified financial professionals
                 before making investment decisions.

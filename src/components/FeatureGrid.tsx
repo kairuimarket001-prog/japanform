@@ -5,22 +5,22 @@ export default function FeatureGrid() {
     {
       icon: TrendingUp,
       title: 'AI-Powered Analysis',
-      description: 'Our AI reviews historical stock data and market trends'
+      description: 'Advanced AI technology for stock market insights'
     },
     {
       icon: Clock,
-      title: 'Fast Processing',
-      description: 'Receive analysis reports within seconds'
+      title: 'Quick Results',
+      description: 'Get your analysis promptly'
     },
     {
       icon: Shield,
-      title: 'Free to Use',
-      description: 'Access our analysis tool at no cost'
+      title: 'Reference Information',
+      description: 'Data-driven insights for your research'
     },
     {
       icon: Zap,
-      title: 'No Account Needed',
-      description: 'Use the tool without creating an account'
+      title: 'Easy to Use',
+      description: 'Simple interface for quick access'
     }
   ];
 
