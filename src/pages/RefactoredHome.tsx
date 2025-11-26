@@ -71,11 +71,11 @@ export default function RefactoredHome() {
 
       setShowLoadingScene(false);
 
-      const fixedText = `Stock Analysis Summary for ${inputValue.trim().toUpperCase()}:\n\nBased on current market data and AI analysis, here are the key insights:\n\n• Market Position: This analysis provides reference information about the stock's recent performance and market trends.\n\n• Technical Overview: Our AI has reviewed historical price patterns and trading volumes to identify potential trends.\n\n• Risk Considerations: Like all investments, this stock carries market risks that should be carefully evaluated.\n\n• Next Steps: For detailed analysis including technical indicators, risk assessment, and personalized insights, please connect with us.\n\nDisclaimer: This is reference information only and not investment advice. Always conduct your own research and consult financial professionals.`;
+      const fixedText = 'The analysis report for the current stock has been fully completed.';
 
       for (let i = 0; i <= fixedText.length; i++) {
         setAnalysisResult(fixedText.substring(0, i));
-        await new Promise(resolve => setTimeout(resolve, 15));
+        await new Promise(resolve => setTimeout(resolve, 30));
       }
 
       setIsStreaming(false);
