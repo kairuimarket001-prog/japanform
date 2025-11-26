@@ -14,15 +14,18 @@ export default function DisclaimerBanner() {
               <p>
                 <strong>This is not investment advice.</strong> The information provided by this AI tool
                 is for reference purposes only and should not be considered as financial or investment advice.
+                This service is not a licensed investment advisor.
               </p>
               <p>
-                AI-generated analysis may contain errors or inaccuracies. Past performance does not guarantee
-                future results. Always conduct your own research and consult with qualified financial professionals
-                before making investment decisions.
+                AI-generated content may contain errors or inaccuracies. Past performance does not guarantee
+                future results. Stock investments carry risks including possible loss of principal.
+                Always conduct your own research and consult with qualified, licensed financial professionals
+                before making any investment decisions.
               </p>
               <p>
-                AKYI Corporation provides this tool as-is and assumes no liability for any investment decisions
-                made based on the information provided.
+                AKYI Corporation provides this tool as-is for informational purposes only and assumes no liability
+                for any investment decisions or losses incurred based on the information provided.
+                Use of this service does not create an advisor-client relationship.
               </p>
             </div>
           </div>

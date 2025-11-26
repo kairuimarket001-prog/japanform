@@ -27,7 +27,7 @@ export default function Terms() {
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
-                By accessing or using the AI Stock Analysis service, you agree to be bound by these
+                By accessing or using the AI Stock Information service, you agree to be bound by these
                 Terms of Service and all applicable laws and regulations. If you do not agree with
                 any part of these terms, you may not use our service.
               </p>
@@ -36,13 +36,13 @@ export default function Terms() {
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">2. Service Description</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
-                Our service provides AI-powered stock analysis and information. Features include:
+                Our service provides AI-powered stock reference information. Features include:
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
                 <li>Stock symbol search and lookup</li>
-                <li>AI-generated analysis reports</li>
-                <li>Market data and trends</li>
-                <li>Reference information for educational purposes</li>
+                <li>AI-generated reference reports (for educational purposes only)</li>
+                <li>Market data and trends (reference information only)</li>
+                <li>Educational and informational content</li>
               </ul>
             </section>
 
@@ -51,14 +51,16 @@ export default function Terms() {
               <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mb-4">
                 <p className="text-gray-800 font-semibold mb-2">Important Disclaimer</p>
                 <p className="text-gray-700 leading-relaxed mb-3">
-                  This service is for informational purposes only and does not constitute investment
-                  advice, financial advice, trading advice, or any other sort of advice. You should not
-                  treat any of the service's content as such.
+                  This service is for informational and educational purposes only and does not constitute investment
+                  advice, financial advice, trading advice, investment recommendations, or any other sort of advice.
+                  This service is not a licensed investment advisor. You should not
+                  treat any of the service's content as investment advice or recommendations.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  We do not recommend that any investment decision be made based solely on information
+                  We do not recommend that any investment decision be made based on information
                   provided by this service. You should always conduct your own research and consult
-                  with qualified financial professionals before making investment decisions.
+                  with qualified, licensed financial professionals before making any investment decisions.
+                  Use of this service does not create an advisor-client relationship.
                 </p>
               </div>
             </section>

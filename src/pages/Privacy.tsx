@@ -27,7 +27,7 @@ export default function Privacy() {
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">1. Information We Collect</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
-                We collect the following types of information when you use our AI Stock Analysis service:
+                We collect the following types of information when you use our AI Stock Information service:
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
                 <li>Usage data (stock symbols searched, analysis requests)</li>

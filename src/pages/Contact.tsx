@@ -23,7 +23,7 @@ export default function Contact() {
 
           <div className="prose max-w-none">
             <p className="text-gray-700 leading-relaxed mb-8">
-              Thank you for using our AI Stock Analysis service. If you have questions, feedback,
+              Thank you for using our AI Stock Information service. If you have questions, feedback,
               or need support, please feel free to reach out to us.
             </p>
 
@@ -115,15 +115,15 @@ export default function Contact() {
                 <div className="border-l-4 border-blue-500 pl-4">
                   <h3 className="font-semibold text-gray-900 mb-2">Is this service free?</h3>
                   <p className="text-gray-700 text-sm">
-                    Yes, our AI Stock Analysis service is completely free to use. No account registration required.
+                    Yes, our AI Stock Information service is completely free to use. No account registration required.
                   </p>
                 </div>
 
                 <div className="border-l-4 border-blue-500 pl-4">
-                  <h3 className="font-semibold text-gray-900 mb-2">Is the analysis reliable?</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">Is the information reliable?</h3>
                   <p className="text-gray-700 text-sm">
-                    Our AI provides reference information only. It should not be used as the sole basis for
-                    investment decisions. Always consult with financial professionals.
+                    Our AI provides reference information only for educational purposes. It should not be used as the sole basis for
+                    investment decisions. We are not a licensed investment advisor. Always consult with licensed financial professionals.
                   </p>
                 </div>
 

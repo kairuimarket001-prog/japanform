@@ -87,7 +87,7 @@ export default function SpecifiedCommercialTransactionAct() {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-1">•</span>
-                    <span>AI技術を活用した株式情報の提供および分析サービス</span>
+                    <span>AI技術を活用した株式情報の提供サービス（参考情報のみ）</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-1">•</span>
@@ -95,11 +95,11 @@ export default function SpecifiedCommercialTransactionAct() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-1">•</span>
-                    <span>AI分析レポートの生成と提供</span>
+                    <span>AI参考レポートの生成と提供（教育目的のみ）</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-1">•</span>
-                    <span>投資情報の提供（情報提供のみ、投資助言には該当しません）</span>
+                    <span>株式市場に関する参考情報の提供（情報提供のみ、投資助言・投資推奨には該当しません）</span>
                   </li>
                 </ul>
               </div>
@@ -210,16 +210,19 @@ export default function SpecifiedCommercialTransactionAct() {
                 <p className="text-amber-900 font-semibold mb-3">重要なお知らせ</p>
                 <div className="space-y-2 text-gray-700 text-sm leading-relaxed">
                   <p>
-                    当サービスは、AI技術を活用した株式情報の提供および分析ツールであり、
-                    投資助言業務、投資一任業務、金融商品仲介業務には該当しません。
+                    当サービスは、AI技術を活用した株式市場に関する参考情報の提供ツールであり、
+                    投資助言業務、投資一任業務、金融商品仲介業務、投資推奨行為には該当しません。
+                    当社は金融商品取引業者として登録されておりません。
                   </p>
                   <p>
-                    提供される情報は参考情報としてご活用ください。
+                    提供される情報は参考情報・教育目的のみを目的としており、
+                    特定の投資行動を推奨または助言するものではありません。
                     株式投資には価格変動リスク、信用リスク、流動性リスク等が伴い、
                     投資元本を割り込む可能性があります。
                   </p>
                   <p>
                     最終的な投資判断は、必ずご自身の責任において行ってください。
+                    投資を行う際は、金融商品取引業者として登録された専門家にご相談ください。
                     当サービスの利用により生じたいかなる損害についても、
                     当社は一切の責任を負いません。
                   </p>
