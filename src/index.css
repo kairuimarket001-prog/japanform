@@ -3,24 +3,36 @@
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: 'HYYaKuHeiW';
+    src: local('Noto Sans JP'), local('Hiragino Sans');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Adobe Heiti Std';
+    src: local('Hiragino Sans'), local('Yu Gothic');
+    font-weight: 400;
+    font-style: normal;
+  }
+
   html {
     overflow-y: scroll;
     scrollbar-gutter: stable;
   }
 
   body {
-    @apply min-h-screen;
-    color: #51c4ff;
-    background: linear-gradient(to bottom, #1a1f3a, #0f1729);
+    @apply bg-gradient-to-b from-white to-light-blue text-gray-800 min-h-screen;
     overflow-x: hidden;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: #cbd5e1 #f1f5f9;
+    scrollbar-color: #3b82f6 #dbeafe;
   }
 
   *::-webkit-scrollbar {
@@ -29,16 +41,16 @@
   }
 
   *::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: #dbeafe;
   }
 
   *::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: #3b82f6;
     border-radius: 4px;
   }
 
   *::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #1e3a8a;
   }
 
   body[data-modal-open] header,
@@ -53,31 +65,134 @@
 }
 
 @layer utilities {
-  @keyframes fadeIn {
-    from {
+  @keyframes shimmer {
+    0% {
       opacity: 0;
+      transform: translateX(-100%);
     }
-    to {
-      opacity: 1;
+    50% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
     }
   }
 
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
+  @keyframes bounce {
+    0%, 100% {
       transform: translateY(0);
     }
+    50% {
+      transform: translateY(-5px);
+    }
   }
 
-  .animate-fadeIn {
-    animation: fadeIn 0.6s ease-out;
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(6, 199, 85, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(6, 199, 85, 0.8), 0 0 60px rgba(6, 199, 85, 0.4);
+    }
   }
 
-  .animate-slideUp {
-    animation: slideUp 0.6s ease-out;
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.33%);
+    }
+  }
+
+  @keyframes robot-float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes book-read {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-2px) rotate(-1deg);
+    }
+    75% {
+      transform: translateY(-2px) rotate(1deg);
+    }
+  }
+
+  @keyframes magnifier-scan {
+    0%, 30% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+    35% {
+      opacity: 1;
+    }
+    70% {
+      transform: translate(80px, 0);
+      opacity: 1;
+    }
+    75%, 100% {
+      transform: translate(80px, 0);
+      opacity: 0;
+    }
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  .animate-robot-float {
+    animation: robot-float 3s ease-in-out infinite;
+  }
+
+  .animate-book-read {
+    animation: book-read 4s ease-in-out infinite;
+  }
+
+  .animate-magnifier-scan {
+    animation: magnifier-scan 8s ease-in-out infinite;
+  }
+
+  @keyframes astronaut-float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-8px) rotate(-2deg);
+    }
+    75% {
+      transform: translateY(-5px) rotate(2deg);
+    }
+  }
+
+  @keyframes rocket-lift {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-6px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(-1deg);
+    }
+    75% {
+      transform: translateY(-6px) rotate(1deg);
+    }
+  }
+
+  .animate-astronaut-float {
+    animation: astronaut-float 4s ease-in-out infinite;
+  }
+
+  .animate-rocket-lift {
+    animation: rocket-lift 3s ease-in-out infinite;
   }
 }

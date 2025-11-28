@@ -12,16 +12,16 @@ export default function ModernActionButton({ onClick, disabled = false }: Modern
           disabled={disabled}
           className="w-full text-gray-900 font-bold py-4 px-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
           style={{
-            backgroundColor: disabled ? '#D1D5DB' : '#fbbf24',
+            backgroundColor: disabled ? '#D1D5DB' : '#FFC93C',
             height: '56px'
           }}
         >
-          <span className="text-lg">分析を開始する</span>
+          <span className="text-lg">診断を開始する</span>
         </button>
       </div>
       <div className="mt-4 text-center">
         <p className="text-xs text-gray-500 leading-relaxed">
-          ※本分析は投資助言ではありません。投資判断は自己責任でお願いいたします。
+          ※本診断は投資助言ではありません。投資判断は自己責任でお願いいたします。
         </p>
       </div>
     </>

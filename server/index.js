@@ -10,7 +10,6 @@ import trackingRouter from './routes/tracking.js';
 import lineRedirectRouter from './routes/lineRedirect.js';
 import googleTrackingRouter from './routes/googleTracking.js';
 import { cleanExpiredCache } from './utils/sqliteCache.js';
-import { createBackup } from './utils/databaseBackup.js';
 import './database/sqlite.js';
 
 dotenv.config();
@@ -23,17 +22,10 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const CORS_ORIGIN = process.env.CORS_ORIGIN;
 const TRUST_PROXY = process.env.TRUST_PROXY === 'true';
 
-createBackup();
-
 setInterval(async () => {
   console.log('Running scheduled cache cleanup...');
   await cleanExpiredCache();
 }, 60 * 60 * 1000);
-
-setInterval(() => {
-  console.log('Creating scheduled database backup...');
-  createBackup();
-}, 24 * 60 * 60 * 1000);
 
 function validateApiConfiguration() {
   const apiKey = process.env.SILICONFLOW_API_KEY || process.env.SILICONFLOW_API_KEYS;
@@ -90,12 +82,12 @@ function securityHeadersMiddleware(req, res, next) {
 
   const cspDirectives = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://static.cloudflareinsights.com" + (NODE_ENV === 'development' ? " https://tagassistant.google.com" : ""),
-    "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://static.cloudflareinsights.com" + (NODE_ENV === 'development' ? " https://tagassistant.google.com" : ""),
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com" + (NODE_ENV === 'development' ? " https://tagassistant.google.com" : ""),
+    "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com" + (NODE_ENV === 'development' ? " https://tagassistant.google.com" : ""),
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com" + (NODE_ENV === 'development' ? " https://tagassistant.google.com" : ""),
     "img-src 'self' data: https: https://www.google.com https://www.google.co.jp https://www.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com" + (NODE_ENV === 'development' ? " https://tagassistant.google.com" : ""),
     "font-src 'self' data: https://fonts.gstatic.com",
-    "connect-src 'self' https://www.google.com https://www.google.co.jp https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://www.googleadservices.com https://googleadservices.com https://api.siliconflow.cn https://kabutan.jp https://cloudflareinsights.com" + (NODE_ENV === 'development' ? " https://tagassistant.google.com" : ""),
+    "connect-src 'self' https://www.google.com https://www.google.co.jp https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://www.googleadservices.com https://googleadservices.com https://api.siliconflow.cn https://kabutan.jp" + (NODE_ENV === 'development' ? " https://tagassistant.google.com" : ""),
     "frame-src https://bid.g.doubleclick.net https://googleads.g.doubleclick.net https://www.googleadservices.com" + (NODE_ENV === 'development' ? " https://tagassistant.google.com" : ""),
     "frame-ancestors 'none'",
     "base-uri 'self'",

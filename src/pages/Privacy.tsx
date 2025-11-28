@@ -10,7 +10,7 @@ export default function Privacy() {
           className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to Home
+          トップページに戻る
         </Link>
 
         <div className="bg-white rounded-xl shadow-lg p-8">
@@ -18,137 +18,141 @@ export default function Privacy() {
             <div className="bg-blue-100 p-3 rounded-lg">
               <Shield className="w-6 h-6 text-blue-700" />
             </div>
-            <h1 className="text-3xl font-bold text-gray-900">Privacy Policy</h1>
+            <h1 className="text-3xl font-bold text-gray-900">プライバシーポリシー</h1>
           </div>
 
           <div className="prose max-w-none">
-            <p className="text-sm text-gray-600 mb-6">Last Updated: November 25, 2025</p>
+            <p className="text-sm text-gray-600 mb-6">最終更新日: 2025年10月21日</p>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">1. Information We Collect</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">1. 基本方針</h2>
+              <p className="text-gray-700 leading-relaxed">
+                AI株式診断サービス（以下「当サービス」）の運営者である株式会社アドバンス（以下「当社」）は、利用者の個人情報の重要性を認識し、
+                個人情報の保護に関する法律（個人情報保護法）を遵守し、適切に取り扱い、保護することに努めます。
+              </p>
+            </section>
+
+            <section className="mb-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">2. 収集する情報</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
-                We collect the following types of information when you use our AI Stock Information service:
+                当社は、当サービスの提供にあたり、以下の情報を収集する場合があります：
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li>Usage data (stock symbols searched, analysis requests)</li>
-                <li>Device information (browser type, operating system)</li>
-                <li>Log data (IP address, access times, pages viewed)</li>
-                <li>Cookies and similar tracking technologies</li>
-                <li>Information you provide (contact form submissions)</li>
+                <li>アクセスログ情報（IPアドレス、ブラウザの種類、アクセス日時等）</li>
+                <li>Cookie および類似の技術を使用して収集される情報</li>
+                <li>サービス利用履歴（閲覧した銘柄、実行した診断等）</li>
+                <li>お問い合わせ時に提供される情報（メールアドレス、氏名等）</li>
               </ul>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">2. How We Use Your Information</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">3. 情報の利用目的</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
-                We use the collected information for the following purposes:
+                収集した情報は、以下の目的で利用します：
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li>Providing and maintaining our service</li>
-                <li>Improving user experience and service features</li>
-                <li>Analyzing usage patterns and trends</li>
-                <li>Preventing fraud and ensuring security</li>
-                <li>Responding to customer inquiries</li>
-                <li>Complying with legal obligations</li>
+                <li>当サービスの提供、維持、改善</li>
+                <li>利用者からのお問い合わせへの対応</li>
+                <li>サービスの利用状況の分析および統計データの作成</li>
+                <li>不正利用の防止およびセキュリティの確保</li>
+                <li>利用規約違反への対応</li>
+                <li>新機能やサービスに関する情報提供（利用者の同意がある場合）</li>
               </ul>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">3. Cookies and Tracking</h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                We use cookies and similar tracking technologies to enhance your experience. You can control
-                cookie settings through your browser preferences. Note that disabling cookies may limit
-                certain features of our service.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">4. Third-Party Services</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">4. Google AdSense について</h2>
               <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
-                <p className="text-gray-800 font-semibold mb-2">Google Services</p>
+                <p className="text-gray-800 font-semibold mb-2">第三者配信事業者による広告配信</p>
                 <p className="text-gray-700 leading-relaxed mb-3">
-                  We use Google Analytics and Google Ads to analyze traffic and deliver relevant advertisements.
-                  These services may collect information about your visits to this and other websites.
+                  当サービスでは、Google AdSense を使用して広告を配信しています。
+                  Google AdSense は Cookie を使用して、利用者が当サイトや他のサイトにアクセスした際の情報に基づいて広告を配信します。
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  You can opt out of personalized advertising by visiting{' '}
-                  <a
-                    href="https://www.google.com/settings/ads"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
-                  >
-                    Google Ads Settings
-                  </a>
-                  .
+                  利用者は、<a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Googleの広告設定ページ</a>で、
+                  パーソナライズド広告を無効にすることができます。
                 </p>
               </div>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">5. Data Sharing</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">5. Cookie の使用について</h2>
               <p className="text-gray-700 leading-relaxed mb-3">
-                We do not sell your personal information. We may share data with:
+                当サービスでは、利用者の利便性向上およびサービス改善のため、Cookie を使用しています。
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-3">
+                Cookie とは、ウェブサイトが利用者のコンピュータに送信する小さなテキストファイルで、
+                利用者のブラウザに保存されます。Cookie を使用することで、利用者の設定を記憶し、より快適にサービスをご利用いただけます。
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                利用者は、ブラウザの設定により Cookie の受け取りを拒否することができますが、
+                その場合、当サービスの一部機能が正常に動作しない可能性があります。
+              </p>
+            </section>
+
+            <section className="mb-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">6. 第三者への情報提供</h2>
+              <p className="text-gray-700 leading-relaxed mb-3">
+                当社は、以下の場合を除き、利用者の同意なく個人情報を第三者に提供することはありません：
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li>Service providers who assist in operating our service</li>
-                <li>Analytics and advertising partners</li>
-                <li>Law enforcement when required by law</li>
+                <li>法令に基づく場合</li>
+                <li>人の生命、身体または財産の保護のために必要がある場合</li>
+                <li>公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合</li>
+                <li>国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合</li>
               </ul>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">6. Data Security</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">7. セキュリティ</h2>
               <p className="text-gray-700 leading-relaxed">
-                We implement reasonable security measures to protect your information. However, no method
-                of transmission over the internet is 100% secure. We cannot guarantee absolute security.
+                当社は、個人情報の漏洩、滅失または毀損の防止その他の個人情報の安全管理のために必要かつ適切な措置を講じます。
+                ただし、インターネット上での情報伝達は完全に安全とは限らないため、当社は絶対的な安全性を保証するものではありません。
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">7. Your Rights</h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Depending on your location, you may have the following rights:
-              </p>
-              <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li>Access to your personal information</li>
-                <li>Correction of inaccurate data</li>
-                <li>Deletion of your information</li>
-                <li>Opt-out of certain data processing</li>
-              </ul>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">8. Children's Privacy</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">8. 個人情報の開示・訂正・削除</h2>
               <p className="text-gray-700 leading-relaxed">
-                Our service is not intended for children under 13 years of age. We do not knowingly collect
-                information from children under 13.
+                利用者は、当社に対して、個人情報の開示、訂正、追加、削除、利用停止等を請求することができます。
+                請求を希望される場合は、お問い合わせフォームよりご連絡ください。
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">9. Changes to This Policy</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">9. 未成年者の利用</h2>
               <p className="text-gray-700 leading-relaxed">
-                We may update this Privacy Policy from time to time. Changes will be posted on this page
-                with an updated "Last Updated" date.
+                当サービスは、未成年者が利用する場合、保護者の同意を得た上でご利用ください。
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">10. Contact Us</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">10. プライバシーポリシーの変更</h2>
               <p className="text-gray-700 leading-relaxed">
-                If you have questions about this Privacy Policy, please contact us through our{' '}
-                <Link to="/contact" className="text-blue-600 hover:underline">
-                  contact form
-                </Link>
-                .
+                当社は、必要に応じて本ポリシーを変更することがあります。
+                変更後のポリシーは、当サービス上に掲載された時点から効力を生じるものとします。
               </p>
             </section>
 
-            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-8">
-              <p className="text-sm text-gray-800">
-                <strong>Disclaimer:</strong> This service provides information for reference purposes only
-                and does not constitute investment advice. Use at your own risk.
+            <div className="bg-slate-100 rounded-lg p-6 mt-8">
+              <h3 className="font-bold text-gray-900 mb-3">お問い合わせ</h3>
+              <p className="text-sm text-gray-700 mb-2">
+                本ポリシーに関するご質問、個人情報の取り扱いに関するご相談は、お問い合わせフォームよりご連絡ください。
+              </p>
+              <p className="text-sm text-gray-700 mb-2">
+                <strong>株式会社アドバンス (Advance Co., Ltd.)</strong>
+              </p>
+              <p className="text-sm text-gray-700 mb-2">
+                〒101-0032 東京都千代田区岩本町2-8-2 都ビジネスビル9階
+              </p>
+              <p className="text-sm text-gray-700 mb-2">
+                設立: 2012年10月
+              </p>
+              <p className="text-sm text-gray-700 mb-2">
+                メール: support@aisbistock.com
+              </p>
+              <p className="text-sm text-gray-700">
+                受付時間: 24時間受付（返信は営業日内）
               </p>
             </div>
           </div>

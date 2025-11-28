@@ -3,7 +3,6 @@ import bcrypt from 'bcryptjs';
 import db from '../database/sqlite.js';
 import { generateToken, authMiddleware } from '../middleware/auth.js';
 import { getSessionSummary, getPopularStocks, getAllSessions, getEventsBySessionId } from '../database/sqliteHelpers.js';
-import { createBackup, listBackups, restoreBackup } from '../utils/databaseBackup.js';
 
 const router = express.Router();
 
@@ -103,49 +102,6 @@ router.get('/stats', authMiddleware, async (req, res) => {
   } catch (error) {
     console.error('Error fetching stats:', error);
     res.status(500).json({ error: 'Failed to fetch statistics' });
-  }
-});
-
-router.post('/backup/create', authMiddleware, async (req, res) => {
-  try {
-    const backupPath = createBackup();
-    if (backupPath) {
-      res.json({ success: true, message: 'Backup created successfully', path: backupPath });
-    } else {
-      res.status(500).json({ error: 'Failed to create backup' });
-    }
-  } catch (error) {
-    console.error('Error creating backup:', error);
-    res.status(500).json({ error: 'Failed to create backup' });
-  }
-});
-
-router.get('/backup/list', authMiddleware, async (req, res) => {
-  try {
-    const backups = listBackups();
-    res.json({ backups });
-  } catch (error) {
-    console.error('Error listing backups:', error);
-    res.status(500).json({ error: 'Failed to list backups' });
-  }
-});
-
-router.post('/backup/restore', authMiddleware, async (req, res) => {
-  try {
-    const { filename } = req.body;
-    if (!filename) {
-      return res.status(400).json({ error: 'Filename is required' });
-    }
-
-    const success = restoreBackup(filename);
-    if (success) {
-      res.json({ success: true, message: 'Database restored successfully' });
-    } else {
-      res.status(500).json({ error: 'Failed to restore backup' });
-    }
-  } catch (error) {
-    console.error('Error restoring backup:', error);
-    res.status(500).json({ error: 'Failed to restore backup' });
   }
 });
 

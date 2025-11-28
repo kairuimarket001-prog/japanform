@@ -20,8 +20,8 @@ export default function DiagnosisButton({ onClick, disabled = false }: Diagnosis
             <Zap className="w-3 md:w-4 h-3 md:h-4 absolute -top-1 -right-1 text-yellow-300" />
           </div>
           <div className="text-center md:text-left">
-            <div className="text-lg md:text-2xl">AI分析を開始</div>
-            <div className="text-xs md:text-sm text-white/90 font-normal">AIで詳細分析</div>
+            <div className="text-lg md:text-2xl">AI診断を受ける</div>
+            <div className="text-xs md:text-sm text-white/90 font-normal">最新AIで徹底分析</div>
           </div>
         </div>
 

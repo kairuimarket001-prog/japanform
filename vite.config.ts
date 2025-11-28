@@ -7,40 +7,6 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
-              return 'vendor-react';
-            }
-            if (id.includes('recharts') || id.includes('d3-')) {
-              return 'vendor-charts';
-            }
-            if (id.includes('lucide-react')) {
-              return 'vendor-icons';
-            }
-            if (id.includes('docx') || id.includes('file-saver')) {
-              return 'vendor-utils';
-            }
-            return 'vendor-other';
-          }
-          if (id.includes('src/pages/AdminDashboard')) {
-            return 'admin';
-          }
-          if (id.includes('src/pages/')) {
-            return 'pages';
-          }
-          if (id.includes('src/components/')) {
-            return 'components';
-          }
-        },
-      },
-    },
-    chunkSizeWarningLimit: 600,
-    sourcemap: false,
-  },
   server: {
     port: 5173,
     strictPort: true,

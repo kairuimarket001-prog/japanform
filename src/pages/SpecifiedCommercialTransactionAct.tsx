@@ -36,23 +36,26 @@ export default function SpecifiedCommercialTransactionAct() {
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">会社名</dt>
-                      <dd className="sm:col-span-2 text-gray-700">株式会社AKYI</dd>
+                      <dd className="sm:col-span-2 text-gray-700">株式会社アドバンス</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">会社名（英語）</dt>
-                      <dd className="sm:col-span-2 text-gray-700">Kabushikigaisha AKYI</dd>
+                      <dd className="sm:col-span-2 text-gray-700">Advance Co., Ltd.</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">所在地</dt>
                       <dd className="sm:col-span-2 text-gray-700">
-                        〒100-0064<br />
-                        東京都千代田区大手町5-7-1<br />
-                        5-7-1 Otemachi, Chiyoda-ku, Tokyo
+                        〒101-0032<br />
+                        東京都千代田区岩本町2-8-2 都ビジネスビル9階
                       </dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
-                      <dt className="font-semibold text-gray-900">電話番号</dt>
-                      <dd className="sm:col-span-2 text-gray-700">+81 3-5555-1272</dd>
+                      <dt className="font-semibold text-gray-900">設立</dt>
+                      <dd className="sm:col-span-2 text-gray-700">2012年10月</dd>
+                    </div>
+                    <div className="grid sm:grid-cols-3 gap-2">
+                      <dt className="font-semibold text-gray-900">業種</dt>
+                      <dd className="sm:col-span-2 text-gray-700">デジタルマーケティング／広告戦略・運用／データ分析</dd>
                     </div>
                   </dl>
                 </div>
@@ -62,14 +65,14 @@ export default function SpecifiedCommercialTransactionAct() {
             <section className="border-b border-gray-200 pb-6">
               <div className="flex items-start gap-4">
                 <div className="bg-green-50 p-3 rounded-lg flex-shrink-0">
-                  <Mail className="w-5 h-5 text-green-600" />
+                  <Phone className="w-5 h-5 text-green-600" />
                 </div>
                 <div className="flex-1">
                   <h2 className="text-xl font-bold text-gray-900 mb-4">連絡先</h2>
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">メールアドレス</dt>
-                      <dd className="sm:col-span-2 text-blue-600">contact@financidsdgroup.jp</dd>
+                      <dd className="sm:col-span-2 text-blue-600">support@aisbistock.com</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">受付時間</dt>
@@ -87,7 +90,7 @@ export default function SpecifiedCommercialTransactionAct() {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-1">•</span>
-                    <span>AI技術を活用した株式情報の提供サービス（参考情報のみ）</span>
+                    <span>AI技術を活用した株式情報の提供および分析サービス</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-1">•</span>
@@ -95,11 +98,11 @@ export default function SpecifiedCommercialTransactionAct() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-1">•</span>
-                    <span>AI参考レポートの生成と提供（教育目的のみ）</span>
+                    <span>AI分析レポートの生成と提供</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-1">•</span>
-                    <span>株式市場に関する参考情報の提供（情報提供のみ、投資助言・投資推奨には該当しません）</span>
+                    <span>投資情報の提供（情報提供のみ、投資助言には該当しません）</span>
                   </li>
                 </ul>
               </div>
@@ -113,7 +116,7 @@ export default function SpecifiedCommercialTransactionAct() {
                     <div>
                       <h3 className="font-bold text-gray-900 mb-1">基本サービス</h3>
                       <p className="text-sm text-gray-700">
-                        株価情報の閲覧、AI分析機能、レポートダウンロード
+                        株価情報の閲覧、AI診断機能、レポートダウンロード
                       </p>
                     </div>
                     <div className="text-right flex-shrink-0">
@@ -159,7 +162,7 @@ export default function SpecifiedCommercialTransactionAct() {
               <div className="bg-slate-50 rounded-lg p-5">
                 <p className="text-gray-700 leading-relaxed">
                   サービスはお申し込み後、即時ご利用いただけます。
-                  AI分析結果の生成には、通常数秒から数十秒程度のお時間をいただきます。
+                  AI診断結果の生成には、通常数秒から数十秒程度のお時間をいただきます。
                 </p>
               </div>
             </section>
@@ -210,19 +213,16 @@ export default function SpecifiedCommercialTransactionAct() {
                 <p className="text-amber-900 font-semibold mb-3">重要なお知らせ</p>
                 <div className="space-y-2 text-gray-700 text-sm leading-relaxed">
                   <p>
-                    当サービスは、AI技術を活用した株式市場に関する参考情報の提供ツールであり、
-                    投資助言業務、投資一任業務、金融商品仲介業務、投資推奨行為には該当しません。
-                    当社は金融商品取引業者として登録されておりません。
+                    当サービスは、AI技術を活用した株式情報の提供および分析ツールであり、
+                    投資助言業務、投資一任業務、金融商品仲介業務には該当しません。
                   </p>
                   <p>
-                    提供される情報は参考情報・教育目的のみを目的としており、
-                    特定の投資行動を推奨または助言するものではありません。
+                    提供される情報は参考情報としてご活用ください。
                     株式投資には価格変動リスク、信用リスク、流動性リスク等が伴い、
                     投資元本を割り込む可能性があります。
                   </p>
                   <p>
                     最終的な投資判断は、必ずご自身の責任において行ってください。
-                    投資を行う際は、金融商品取引業者として登録された専門家にご相談ください。
                     当サービスの利用により生じたいかなる損害についても、
                     当社は一切の責任を負いません。
                   </p>
@@ -241,7 +241,7 @@ export default function SpecifiedCommercialTransactionAct() {
                   <Mail className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">メール</p>
-                    <p className="text-blue-600">contact@financidsdgroup.jp</p>
+                    <p className="text-blue-600">support@aisbistock.com</p>
                     <p className="text-sm text-gray-600 mt-1">24時間受付（返信は営業日内）</p>
                   </div>
                 </div>
