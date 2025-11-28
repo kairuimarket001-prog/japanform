@@ -1,35 +1,35 @@
 import { Link } from 'react-router-dom';
-import { Shield, Scale, FileText, Mail, ExternalLink } from 'lucide-react';
+import { Shield, Scale, FileText, Mail, ExternalLink, Phone } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 border-t-2 border-white/20 mt-12">
+    <footer className="relative z-20 border-t-2 border-white/20 mt-12">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-8">
         {/* Legal Disclosure Section - Desktop */}
-        <div className="hidden md:block bg-slate-800/90 backdrop-blur-sm border-2 border-ocean-400/50 rounded-lg p-6 mb-8 shadow-xl">
+        <div className="hidden md:block bg-slate-800/90 backdrop-blur-sm border-2 border-cyan-500/50 rounded-lg p-6 mb-8 shadow-xl">
           <div className="flex items-start gap-4">
-            <div className="bg-ocean-900/50 p-3 rounded-lg flex-shrink-0">
-              <Shield className="w-6 h-6 text-ocean-400" />
+            <div className="bg-cyan-900/50 p-3 rounded-lg flex-shrink-0">
+              <Shield className="w-6 h-6 text-cyan-400" />
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-bold text-ocean-300 mb-3 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-cyan-300 mb-3 flex items-center gap-2">
                 <Scale className="w-5 h-5" />
                 金融商品取引法に基づく重要事項
               </h3>
 
               <div className="space-y-3 text-sm leading-relaxed text-slate-200">
-                <div className="bg-slate-700/70 rounded p-3 border-l-4 border-ocean-500">
-                  <p className="font-bold text-ocean-300 mb-2">【サービスの性質】</p>
+                <div className="bg-slate-700/70 rounded p-3 border-l-4 border-cyan-500">
+                  <p className="font-bold text-cyan-300 mb-2">【サービスの性質】</p>
                   <p>
                     本サービスは、AI技術を活用した株式情報の提供および分析ツールです。
                     <strong className="text-red-700">投資助言業務、投資一任業務、金融商品仲介業務には該当せず、特定の金融商品の売買を推奨・勧誘するものではありません。</strong>
                   </p>
                 </div>
 
-                <div className="bg-slate-700/70 rounded p-3 border-l-4 border-coral-500">
-                  <p className="font-bold text-coral-300 mb-2">【投資リスクに関する警告】</p>
+                <div className="bg-slate-700/70 rounded p-3 border-l-4 border-orange-500">
+                  <p className="font-bold text-orange-300 mb-2">【投資リスクに関する警告】</p>
                   <p>
                     株式投資には価格変動リスク、信用リスク、流動性リスク等が伴い、
                     <strong className="text-red-700">投資元本を割り込む可能性があります。</strong>
@@ -38,8 +38,8 @@ export default function Footer() {
                   </p>
                 </div>
 
-                <div className="bg-slate-700/70 rounded p-3 border-l-4 border-ocean-500">
-                  <p className="font-bold text-ocean-300 mb-2">【情報の正確性について】</p>
+                <div className="bg-slate-700/70 rounded p-3 border-l-4 border-blue-500">
+                  <p className="font-bold text-blue-300 mb-2">【情報の正確性について】</p>
                   <p>
                     提供される情報は、信頼できると判断した情報源から取得していますが、
                     その正確性、完全性、適時性を保証するものではありません。
@@ -69,9 +69,9 @@ export default function Footer() {
         </div>
 
         {/* Important Notice - Mobile */}
-        <div className="md:hidden bg-ocean-500/10 backdrop-blur-md border border-ocean-400/50 rounded-xl p-4 text-center mb-6">
-          <p className="text-sm text-ocean-300 font-semibold mb-1">⚠️ 重要なお知らせ</p>
-          <p className="text-xs text-ocean-100 leading-relaxed">
+        <div className="md:hidden bg-cyan-500/10 backdrop-blur-md border border-cyan-400/50 rounded-xl p-4 text-center mb-6">
+          <p className="text-sm text-cyan-300 font-semibold mb-1">⚠️ 重要なお知らせ</p>
+          <p className="text-xs text-cyan-100 leading-relaxed">
             当サービスは情報提供のみを目的としており、投資助言や投資勧誘を行うものではありません。投資判断は必ずご自身の責任で行ってください。
           </p>
         </div>
@@ -86,14 +86,6 @@ export default function Footer() {
                 法的文書
               </h4>
               <ul className="space-y-2 text-xs sm:text-sm">
-                <li>
-                  <Link
-                    to="/company"
-                    className="text-white drop-shadow-lg hover:text-yellow-300 hover:underline flex items-center gap-1"
-                  >
-                    会社概要 <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
                 <li>
                   <Link
                     to="/terms"
@@ -138,7 +130,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-1 text-white drop-shadow-lg">
                   <Mail className="w-3 h-3" />
-                  <span>support@aisbistock.com</span>
+                  <span>support@stock-tokyo.jp</span>
                 </li>
                 <li className="text-white/80 drop-shadow-lg text-xs">
                   受付時間: 24時間受付（返信は営業日内）
@@ -150,7 +142,7 @@ export default function Footer() {
           {/* Copyright Section */}
           <div className="border-t border-white/30 pt-4 text-center">
             <p className="text-xs sm:text-sm text-white drop-shadow-lg mb-2 font-medium">
-              &copy; {currentYear} 株式会社アドバンス (Advance Co., Ltd.). All rights reserved.
+              &copy; {currentYear} 株式会社ブレインパッド (BrainPad Inc.). All rights reserved.
             </p>
             <p className="text-[10px] sm:text-xs text-white/90 drop-shadow-lg leading-relaxed max-w-3xl mx-auto mb-4">
               当サイトで提供される情報は投資勧誘を目的としたものではありません。
@@ -160,16 +152,16 @@ export default function Footer() {
 
             {/* Service Information */}
             <div className="text-[10px] sm:text-xs text-white/80 drop-shadow-lg space-y-1">
-              <p>株式会社アドバンス（Advance Co., Ltd.）</p>
-              <p>〒101-0032 東京都千代田区岩本町2-8-2 都ビジネスビル9階</p>
+              <p>株式会社ブレインパッド（BrainPad Inc.）</p>
+              <p>〒106-0032 東京都港区六本木三丁目1番1号 六本木ティーキューブ</p>
               <p className="mt-2">
                 <span className="inline">AI株式診断サービス</span>
                 <span className="mx-2">|</span>
+                <span className="inline">データ分析</span>
+                <span className="mx-2">|</span>
                 <span className="inline">デジタルマーケティング</span>
                 <span className="mx-2">|</span>
-                <span className="inline">広告運用</span>
-                <span className="mx-2">|</span>
-                <span className="inline">データ分析</span>
+                <span className="inline">DXコンサルティング</span>
               </p>
             </div>
           </div>

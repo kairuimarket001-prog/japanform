@@ -1,4 +1,4 @@
-import { ArrowLeft, FileText, Building, Mail } from 'lucide-react';
+import { ArrowLeft, FileText, Building, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function SpecifiedCommercialTransactionAct() {
@@ -36,26 +36,26 @@ export default function SpecifiedCommercialTransactionAct() {
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">会社名</dt>
-                      <dd className="sm:col-span-2 text-gray-700">株式会社アドバンス</dd>
+                      <dd className="sm:col-span-2 text-gray-700">株式会社ブレインパッド</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">会社名（英語）</dt>
-                      <dd className="sm:col-span-2 text-gray-700">Advance Co., Ltd.</dd>
+                      <dd className="sm:col-span-2 text-gray-700">BrainPad Inc.</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">所在地</dt>
                       <dd className="sm:col-span-2 text-gray-700">
-                        〒101-0032<br />
-                        東京都千代田区岩本町2-8-2 都ビジネスビル9階
+                        〒106-0032<br />
+                        東京都港区六本木三丁目1番1号 六本木ティーキューブ
                       </dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">設立</dt>
-                      <dd className="sm:col-span-2 text-gray-700">2012年10月</dd>
+                      <dd className="sm:col-span-2 text-gray-700">2004年3月18日</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">業種</dt>
-                      <dd className="sm:col-span-2 text-gray-700">デジタルマーケティング／広告戦略・運用／データ分析</dd>
+                      <dd className="sm:col-span-2 text-gray-700">データ分析・デジタルマーケティング・コンサルティング</dd>
                     </div>
                   </dl>
                 </div>
@@ -72,7 +72,7 @@ export default function SpecifiedCommercialTransactionAct() {
                   <dl className="space-y-3">
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">メールアドレス</dt>
-                      <dd className="sm:col-span-2 text-blue-600">support@aisbistock.com</dd>
+                      <dd className="sm:col-span-2 text-blue-600">support@stock-tokyo.jp</dd>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-2">
                       <dt className="font-semibold text-gray-900">受付時間</dt>
@@ -241,7 +241,7 @@ export default function SpecifiedCommercialTransactionAct() {
                   <Mail className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">メール</p>
-                    <p className="text-blue-600">support@aisbistock.com</p>
+                    <p className="text-blue-600">support@stock-tokyo.jp</p>
                     <p className="text-sm text-gray-600 mt-1">24時間受付（返信は営業日内）</p>
                   </div>
                 </div>

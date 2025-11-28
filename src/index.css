@@ -23,7 +23,7 @@
   }
 
   body {
-    @apply bg-peaceful-sky text-gray-800 min-h-screen;
+    @apply bg-gradient-to-b from-white to-light-blue text-gray-800 min-h-screen;
     overflow-x: hidden;
     font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -32,7 +32,7 @@
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: #0ea5e9 #e0f2fe;
+    scrollbar-color: #3b82f6 #dbeafe;
   }
 
   *::-webkit-scrollbar {
@@ -41,16 +41,16 @@
   }
 
   *::-webkit-scrollbar-track {
-    background: #e0f2fe;
+    background: #dbeafe;
   }
 
   *::-webkit-scrollbar-thumb {
-    background: #0ea5e9;
+    background: #3b82f6;
     border-radius: 4px;
   }
 
   *::-webkit-scrollbar-thumb:hover {
-    background: #0284c7;
+    background: #1e3a8a;
   }
 
   body[data-modal-open] header,
@@ -90,10 +90,10 @@
 
   @keyframes glow-pulse {
     0%, 100% {
-      box-shadow: 0 0 20px rgba(20, 184, 166, 0.5);
+      box-shadow: 0 0 20px rgba(6, 199, 85, 0.5);
     }
     50% {
-      box-shadow: 0 0 40px rgba(20, 184, 166, 0.8), 0 0 60px rgba(20, 184, 166, 0.4);
+      box-shadow: 0 0 40px rgba(6, 199, 85, 0.8), 0 0 60px rgba(6, 199, 85, 0.4);
     }
   }
 

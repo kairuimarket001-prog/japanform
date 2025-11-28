@@ -7,7 +7,6 @@ import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import SpecifiedCommercialTransactionAct from './pages/SpecifiedCommercialTransactionAct';
-import CompanyInfo from './pages/CompanyInfo';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import { initializeGoogleTracking } from './lib/googleTracking';
@@ -25,7 +24,6 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/specified-commercial-transaction-act" element={<SpecifiedCommercialTransactionAct />} />
-        <Route path="/company" element={<CompanyInfo />} />
 
         {/* Admin Routes */}
         <Route path="/adsadmin" element={<AdminLogin />} />
